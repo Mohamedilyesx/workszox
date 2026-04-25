@@ -406,6 +406,89 @@ document.addEventListener("DOMContentLoaded", function () {
     updateCartBadge();
   }
 
+  /* =========================================================
+     8) Cards Slider - قسم البطاقات
+     section-id: a251f72a-0eef-4bb3-8d9d-cdf16054b957
+  ========================================================= */
+  function initCardsSlider() {
+    var section = document.querySelector('section[section-id="a251f72a-0eef-4bb3-8d9d-cdf16054b957"]');
+    if (!section) return;
+
+    var cards = section.querySelectorAll(".cards-slider .card-item:not(.slick-cloned)");
+    if (!cards.length) return;
+
+    var productLink = "https://jawaktv.com/products/%D8%A7%D8%B4%D8%AA%D8%B1%D8%A7%D9%83-%D8%AC%D9%88%D9%83-%D8%B3%D8%AA%D8%B1%D9%88%D9%86%D8%AC-8k-%D9%84%D9%85%D8%AF%D8%A9-%D8%B3%D9%86%D8%A9";
+
+    var data = [
+      {
+        title: "مكتبة ترفيه ضخمة",
+        desc: "استمتع بأكثر من 150 ألف فيلم و40 ألف مسلسل بمحتوى متجدد وجودة مشاهدة عالية.",
+        image: "https://i.ibb.co/ynwHHNkd/54.jpg",
+        alt: "مكتبة أفلام ومسلسلات"
+      },
+      {
+        title: "مونديال 2026",
+        desc: "عش أجواء كأس العالم 2026 بتغطية ممتعة وتجربة مشاهدة قوية لعشاق الكرة.",
+        image: "https://i.ibb.co/d4zz88R1/55.jpg",
+        alt: "كأس العالم 2026"
+      },
+      {
+        title: "قنوات وتلفاز",
+        desc: "باقة واسعة تضم أكثر من 20000 قناة متنوعة بين الرياضية والترفيهية والعائلية.",
+        image: "https://i.ibb.co/KxsdJRZJ/Jawaktv-1.jpg",
+        alt: "قنوات وتلفاز"
+      },
+      {
+        title: "أبطال ودوريات",
+        desc: "تابع دوري الأبطال وأقوى الدوريات العالمية بمشاهدة مستقرة ومحتوى رياضي ثري.",
+        image: "https://i.ibb.co/QFNdgyp6/Jawaktv.jpg",
+        alt: "دوري الأبطال والدوريات"
+      }
+    ];
+
+    function fillCard(card, item) {
+      var imageLink = card.querySelector(".card-item-inner a");
+      var image     = card.querySelector(".card-item-inner img");
+      var titleLink = card.querySelector(".card-content .title a");
+      var desc      = card.querySelector(".card-content .description");
+      var btn       = card.querySelector(".card-content .link");
+
+      if (imageLink) imageLink.setAttribute("href", productLink);
+      if (image) {
+        image.setAttribute("src", item.image);
+        image.setAttribute("alt", item.alt);
+      }
+      if (titleLink) {
+        titleLink.setAttribute("href", productLink);
+        titleLink.textContent = item.title;
+      }
+      if (desc) desc.textContent = item.desc;
+      if (btn) {
+        btn.setAttribute("href", productLink);
+        btn.textContent = "اشترك الآن";
+      }
+    }
+
+    cards.forEach(function (card, index) {
+      var item = data[index];
+      if (!item) return;
+      fillCard(card, item);
+    });
+
+    function syncClonedSlides() {
+      var allCards = section.querySelectorAll(".cards-slider .card-item");
+      allCards.forEach(function (card) {
+        var idx = parseInt(card.getAttribute("data-slick-index"), 10);
+        if (isNaN(idx)) return;
+        var realIndex = ((idx % data.length) + data.length) % data.length;
+        fillCard(card, data[realIndex]);
+      });
+    }
+
+    syncClonedSlides();
+    setTimeout(syncClonedSlides, 700);
+    setTimeout(syncClonedSlides, 1500);
+  }
 
   /* =========================================================
      9) تشغيل جميع الوظائف
@@ -438,167 +521,115 @@ document.addEventListener("DOMContentLoaded", function () {
 
 });
 
-
 /* =========================================================
-   JS — سلة + بوب آب
+   JAWAKTV — CART + POPUP JS FIXES — FINAL v5
 ========================================================= */
-(function () {
-  "use strict";
-
-  /* ── إزالة سكرول من قائمة المنتجات في البوب آب ── */
-  function fixPopupScroll() {
-    document.querySelectorAll(
-      ".raqami-mini-cart .items, .mini-cart-popup .items, .cartBox .items"
-    ).forEach(function (el) {
-      el.style.overflow  = "visible";
-      el.style.maxHeight = "none";
-      el.style.height    = "auto";
-    });
-  }
-
-  /* ── زر X دائري أحمر/أبيض لكل منتج في صفحة السلة ── */
-  function styleCartRemoveBtns() {
-    document.querySelectorAll(
-      ".cart-products-div .cart-product-col-remove button, " +
-      ".cart-products-div button.remove-product, " +
-      ".cart-remove-product"
-    ).forEach(function (btn) {
-      btn.style.cssText += [
-        "width:32px", "height:32px", "min-width:32px",
-        "border-radius:50%", "padding:0",
-        "background:#e53935", "border:none",
-        "color:#fff", "display:inline-flex",
-        "align-items:center", "justify-content:center",
-        "cursor:pointer", "transition:all .22s ease",
-        "box-shadow:0 2px 10px rgba(229,57,53,.38)"
-      ].join("!important;") + "!important";
-    });
-  }
-
-  /* ── Hover effect — إتمام الشراء في صفحة السلة ── */
-  function bindCheckoutHover() {
-    document.querySelectorAll(
-      ".cart-page .checkoutBtn, .cart-page .btn-checkout, " +
-      ".cart-page a.checkout-btn, .cart-page button.checkout-btn"
-    ).forEach(function (btn) {
-      btn.addEventListener("mouseenter", function () {
-        this.style.transform  = "translateY(-2px)";
-        this.style.boxShadow  = "0 16px 34px rgba(218,174,73,.40)";
-      });
-      btn.addEventListener("mouseleave", function () {
-        this.style.transform  = "";
-        this.style.boxShadow  = "";
-      });
-    });
-  }
-
-  /* ── مراقب التغييرات (DOM mutation) ── */
-  var observer = new MutationObserver(function () {
-    fixPopupScroll();
-    styleCartRemoveBtns();
-    bindCheckoutHover();
-  });
-  observer.observe(document.body, { childList: true, subtree: true });
-
-  /* ── تشغيل فوري عند التحميل ── */
-  if (document.readyState === "loading") {
-    document.addEventListener("DOMContentLoaded", function () {
-      fixPopupScroll();
-      styleCartRemoveBtns();
-      bindCheckoutHover();
-    });
-  } else {
-    fixPopupScroll();
-    styleCartRemoveBtns();
-    bindCheckoutHover();
-  }
-})();
-
-
-// ======= كوداتك السابقة هنا =======
-// كود السلة...
-// كود الهيدر...
-// الخ...
-
-// ======= في الأسفل تماماً =======
-document.addEventListener("DOMContentLoaded", function () {
-  if (document.body.getAttribute("data-template") === "list_categories") {
-    var container = document.querySelector(".categories-slider");
-    if (container) {
-      container.style.display = "flex";
-      container.style.flexDirection = "row";
-      container.style.flexWrap = "wrap";
-      container.style.justifyContent = "center";
-      container.style.gap = "30px";
-
-      setTimeout(function () {
-        container.querySelectorAll("[class*='col-']").forEach(function (el) {
-          el.style.removeProperty("position");
-          el.style.removeProperty("top");
-          el.style.removeProperty("left");
-          el.style.removeProperty("right");
-        });
-      }, 300);
-    }
-  }
-});
-
-
 document.addEventListener("DOMContentLoaded", function () {
 
-  /* 1. إخفاء زر التصفية المكرر */
-  var filterWeb = document.getElementById("products-list-filter-web");
-  if (filterWeb) {
-    filterWeb.style.setProperty("display", "none", "important");
-  }
+  /* تسوية input + زر الكوبون في كل مكان */
+  function fixCouponRow() {
+    document.querySelectorAll(
+      ".footerSub .coupon-form .d-flex, .coupon-form .d-flex"
+    ).forEach(function (wrap) {
+      var input  = wrap.querySelector("input");
+      var button = wrap.querySelector("button");
+      if (!input || !button) return;
 
-  /* 2. z-index الفلتر عند الفتح */
-  var filterCollapse = document.getElementById("filters-form-collapse-sm");
-  if (filterCollapse && typeof $ !== "undefined") {
-    $(filterCollapse).on("show.bs.collapse", function () {
-      filterCollapse.style.setProperty("z-index", "999", "important");
-      filterCollapse.style.setProperty("position", "relative", "important");
-    });
-    $(filterCollapse).on("hide.bs.collapse", function () {
-      filterCollapse.style.setProperty("z-index", "0", "important");
-    });
-  }
-
-  /* 3. z-index dropdown الترتيب */
-  var sortMenu = document.getElementById("sort-dropdown-menu");
-  if (sortMenu) {
-    sortMenu.style.setProperty("z-index", "1050", "important");
-  }
-
-  /* 4. إغلاق dropdown عند الضغط خارجه */
-  document.addEventListener("click", function (e) {
-    if (!e.target.closest(".dropdown")) {
-      document.querySelectorAll(".dropdown-menu.show").forEach(function (el) {
-        el.classList.remove("show");
+      [input, button].forEach(function (el) {
+        el.style.height     = (el.tagName === "INPUT" ? "44" : "44") + "px";
+        el.style.lineHeight = "44px";
+        el.style.margin     = "0";
+        el.style.boxSizing  = "border-box";
+        el.style.display    = el.tagName === "INPUT" ? "block" : "flex";
+        el.style.verticalAlign = "middle";
       });
-      document.querySelectorAll(".dropdown-toggle[aria-expanded='true']").forEach(function (el) {
-        el.setAttribute("aria-expanded", "false");
-      });
-    }
-  });
 
-  /* 5. شبكة 4 حاسوب / 2 هاتف وتابلت */
-  function fixProductGrid() {
-    var cols = document.querySelectorAll("#products-list > div");
-    cols.forEach(function (col) {
-      if (window.innerWidth >= 992) {
-        col.style.setProperty("flex",      "0 0 25%", "important");
-        col.style.setProperty("max-width", "25%",     "important");
-        col.style.setProperty("width",     "25%",     "important");
-      } else {
-        col.style.setProperty("flex",      "0 0 50%", "important");
-        col.style.setProperty("max-width", "50%",     "important");
-        col.style.setProperty("width",     "50%",     "important");
+      input.style.flex         = "1";
+      input.style.minWidth     = "0";
+      input.style.borderRadius = "999px 0 0 999px";
+      input.style.borderLeft   = "none";
+      input.style.padding      = "0 14px";
+
+      button.style.flex           = "0 0 auto";
+      button.style.borderRadius   = "0 999px 999px 0";
+      button.style.padding        = "0 16px";
+      button.style.alignItems     = "center";
+      button.style.justifyContent = "center";
+      button.style.whiteSpace     = "nowrap";
+    });
+  }
+
+  /* إصلاح أزرار السلة */
+  function fixCartBtns() {
+    document.querySelectorAll("a.checkBtn").forEach(function (btn) {
+      var href = btn.getAttribute("href") || "";
+      var txt  = btn.textContent.trim();
+
+      btn.style.display        = "flex";
+      btn.style.alignItems     = "center";
+      btn.style.justifyContent = "center";
+      btn.style.minHeight      = "50px";
+      btn.style.lineHeight     = "1";
+      btn.style.boxSizing      = "border-box";
+      btn.style.padding        = "0 20px";
+      btn.style.width          = "100%";
+      btn.style.textDecoration = "none";
+      btn.style.borderRadius   = "999px";
+      btn.style.fontWeight     = "700";
+      btn.style.fontSize       = "15px";
+
+      if (href.indexOf("checkout") !== -1) {
+        btn.style.color  = "#0d0900";
+        btn.style.border = "none";
+        btn.style.setProperty("-webkit-text-fill-color","#0d0900","important");
+      } else if (href === "/" || txt.indexOf("متابعة") !== -1) {
+        btn.style.background = "transparent";
+        btn.style.color      = "#daae49";
+        btn.style.border     = "1.5px solid rgba(218,174,73,0.5)";
+        btn.style.setProperty("-webkit-text-fill-color","#daae49","important");
       }
     });
   }
 
-  fixProductGrid();
-  window.addEventListener("resize", fixProductGrid);
+  /* إصلاح المجموع الكلي — أبيض */
+  function fixTotalWhite() {
+    var div = document.querySelector(".cart-totals-div");
+    if (!div) return;
+    var rows = div.querySelectorAll(".cart-totals-row-wrapper");
+    rows.forEach(function (row, i) {
+      var val = row.querySelector(".flex-shrink-0");
+      if (!val) return;
+      if (i === rows.length - 1) {
+        val.style.color = "#ffffff";
+        val.style.setProperty("-webkit-text-fill-color","#ffffff","important");
+        val.style.fontWeight = "800";
+        val.style.fontSize   = "15px";
+      } else {
+        val.style.color = "#daae49";
+        val.style.setProperty("-webkit-text-fill-color","#daae49","important");
+      }
+    });
+  }
 
+  /* مراقبة البوب آب */
+  function watchPopup() {
+    var cartBox = document.querySelector(".cartBox, .raqami-mini-cart");
+    if (!cartBox) return;
+    new MutationObserver(function () {
+      setTimeout(fixCouponRow, 60);
+    }).observe(cartBox, { childList: true, subtree: true });
+  }
+
+  fixCouponRow();
+  fixCartBtns();
+  fixTotalWhite();
+  watchPopup();
+
+  setTimeout(function () {
+    fixCouponRow();
+    fixCartBtns();
+    fixTotalWhite();
+  }, 600);
+
+  setTimeout(fixTotalWhite, 1800);
 });
