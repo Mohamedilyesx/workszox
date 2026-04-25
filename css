@@ -2255,46 +2255,6 @@ section[section-id="a251f72a-0eef-4bb3-8d9d-cdf16054b957"] .card-content .link.h
     0 0 16px rgba(212,175,55,0.24);
 }
 
-/* الأسهم */
-section[section-id="a251f72a-0eef-4bb3-8d9d-cdf16054b957"] .slick-prev,
-section[section-id="a251f72a-0eef-4bb3-8d9d-cdf16054b957"] .slick-next {
-  width: 52px !important;
-  height: 52px !important;
-  border-radius: 999px !important;
-  background: linear-gradient(180deg, #e1ba47 0%, #ad7b12 100%) !important;
-  box-shadow:
-    0 12px 24px rgba(0,0,0,0.26),
-    inset 0 1px 0 rgba(255,246,204,0.35) !important;
-  display: flex !important;
-  align-items: center;
-  justify-content: center;
-  z-index: 20 !important;
-}
-
-section[section-id="a251f72a-0eef-4bb3-8d9d-cdf16054b957"] .slick-prev:hover,
-section[section-id="a251f72a-0eef-4bb3-8d9d-cdf16054b957"] .slick-next:hover {
-  transform: translateY(-2px);
-  box-shadow:
-    0 14px 28px rgba(0,0,0,0.32),
-    0 0 18px rgba(212,175,55,0.25) !important;
-}
-
-section[section-id="a251f72a-0eef-4bb3-8d9d-cdf16054b957"] .slick-prev {
-  right: -26px !important;
-  left: auto !important;
-}
-
-section[section-id="a251f72a-0eef-4bb3-8d9d-cdf16054b957"] .slick-next {
-  left: -26px !important;
-  right: auto !important;
-}
-
-section[section-id="a251f72a-0eef-4bb3-8d9d-cdf16054b957"] .slick-prev i,
-section[section-id="a251f72a-0eef-4bb3-8d9d-cdf16054b957"] .slick-next i {
-  color: #14110c !important;
-  font-size: 20px !important;
-}
-
 section[section-id="a251f72a-0eef-4bb3-8d9d-cdf16054b957"] .slick-dots li button:before {
   color: rgba(212,175,55,0.35) !important;
   opacity: 1 !important;
@@ -2322,19 +2282,5 @@ section[section-id="a251f72a-0eef-4bb3-8d9d-cdf16054b957"] .slick-dots li.slick-
     font-size: 14px;
     min-height: auto;
     max-width: 100%;
-  }
-
-  section[section-id="a251f72a-0eef-4bb3-8d9d-cdf16054b957"] .slick-prev,
-  section[section-id="a251f72a-0eef-4bb3-8d9d-cdf16054b957"] .slick-next {
-    width: 42px !important;
-    height: 42px !important;
-  }
-
-  section[section-id="a251f72a-0eef-4bb3-8d9d-cdf16054b957"] .slick-prev {
-    right: 4px !important;
-  }
-
-  section[section-id="a251f72a-0eef-4bb3-8d9d-cdf16054b957"] .slick-next {
-    left: 4px !important;
   }
 }
