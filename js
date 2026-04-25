@@ -520,3 +520,168 @@ document.addEventListener("DOMContentLoaded", function () {
   setTimeout(moveLogoToCenter, 3000);
 
 });
+
+
+/* =========================================================
+   JS — سلة + بوب آب
+========================================================= */
+(function () {
+  "use strict";
+
+  /* ── إزالة سكرول من قائمة المنتجات في البوب آب ── */
+  function fixPopupScroll() {
+    document.querySelectorAll(
+      ".raqami-mini-cart .items, .mini-cart-popup .items, .cartBox .items"
+    ).forEach(function (el) {
+      el.style.overflow  = "visible";
+      el.style.maxHeight = "none";
+      el.style.height    = "auto";
+    });
+  }
+
+  /* ── زر X دائري أحمر/أبيض لكل منتج في صفحة السلة ── */
+  function styleCartRemoveBtns() {
+    document.querySelectorAll(
+      ".cart-products-div .cart-product-col-remove button, " +
+      ".cart-products-div button.remove-product, " +
+      ".cart-remove-product"
+    ).forEach(function (btn) {
+      btn.style.cssText += [
+        "width:32px", "height:32px", "min-width:32px",
+        "border-radius:50%", "padding:0",
+        "background:#e53935", "border:none",
+        "color:#fff", "display:inline-flex",
+        "align-items:center", "justify-content:center",
+        "cursor:pointer", "transition:all .22s ease",
+        "box-shadow:0 2px 10px rgba(229,57,53,.38)"
+      ].join("!important;") + "!important";
+    });
+  }
+
+  /* ── Hover effect — إتمام الشراء في صفحة السلة ── */
+  function bindCheckoutHover() {
+    document.querySelectorAll(
+      ".cart-page .checkoutBtn, .cart-page .btn-checkout, " +
+      ".cart-page a.checkout-btn, .cart-page button.checkout-btn"
+    ).forEach(function (btn) {
+      btn.addEventListener("mouseenter", function () {
+        this.style.transform  = "translateY(-2px)";
+        this.style.boxShadow  = "0 16px 34px rgba(218,174,73,.40)";
+      });
+      btn.addEventListener("mouseleave", function () {
+        this.style.transform  = "";
+        this.style.boxShadow  = "";
+      });
+    });
+  }
+
+  /* ── مراقب التغييرات (DOM mutation) ── */
+  var observer = new MutationObserver(function () {
+    fixPopupScroll();
+    styleCartRemoveBtns();
+    bindCheckoutHover();
+  });
+  observer.observe(document.body, { childList: true, subtree: true });
+
+  /* ── تشغيل فوري عند التحميل ── */
+  if (document.readyState === "loading") {
+    document.addEventListener("DOMContentLoaded", function () {
+      fixPopupScroll();
+      styleCartRemoveBtns();
+      bindCheckoutHover();
+    });
+  } else {
+    fixPopupScroll();
+    styleCartRemoveBtns();
+    bindCheckoutHover();
+  }
+})();
+
+
+// ======= كوداتك السابقة هنا =======
+// كود السلة...
+// كود الهيدر...
+// الخ...
+
+// ======= في الأسفل تماماً =======
+document.addEventListener("DOMContentLoaded", function () {
+  if (document.body.getAttribute("data-template") === "list_categories") {
+    var container = document.querySelector(".categories-slider");
+    if (container) {
+      container.style.display = "flex";
+      container.style.flexDirection = "row";
+      container.style.flexWrap = "wrap";
+      container.style.justifyContent = "center";
+      container.style.gap = "30px";
+
+      setTimeout(function () {
+        container.querySelectorAll("[class*='col-']").forEach(function (el) {
+          el.style.removeProperty("position");
+          el.style.removeProperty("top");
+          el.style.removeProperty("left");
+          el.style.removeProperty("right");
+        });
+      }, 300);
+    }
+  }
+});
+
+
+document.addEventListener("DOMContentLoaded", function () {
+
+  /* 1. إخفاء زر التصفية المكرر */
+  var filterWeb = document.getElementById("products-list-filter-web");
+  if (filterWeb) {
+    filterWeb.style.setProperty("display", "none", "important");
+  }
+
+  /* 2. z-index الفلتر عند الفتح */
+  var filterCollapse = document.getElementById("filters-form-collapse-sm");
+  if (filterCollapse && typeof $ !== "undefined") {
+    $(filterCollapse).on("show.bs.collapse", function () {
+      filterCollapse.style.setProperty("z-index", "999", "important");
+      filterCollapse.style.setProperty("position", "relative", "important");
+    });
+    $(filterCollapse).on("hide.bs.collapse", function () {
+      filterCollapse.style.setProperty("z-index", "0", "important");
+    });
+  }
+
+  /* 3. z-index dropdown الترتيب */
+  var sortMenu = document.getElementById("sort-dropdown-menu");
+  if (sortMenu) {
+    sortMenu.style.setProperty("z-index", "1050", "important");
+  }
+
+  /* 4. إغلاق dropdown عند الضغط خارجه */
+  document.addEventListener("click", function (e) {
+    if (!e.target.closest(".dropdown")) {
+      document.querySelectorAll(".dropdown-menu.show").forEach(function (el) {
+        el.classList.remove("show");
+      });
+      document.querySelectorAll(".dropdown-toggle[aria-expanded='true']").forEach(function (el) {
+        el.setAttribute("aria-expanded", "false");
+      });
+    }
+  });
+
+  /* 5. شبكة 4 حاسوب / 2 هاتف وتابلت */
+  function fixProductGrid() {
+    var cols = document.querySelectorAll("#products-list > div");
+    cols.forEach(function (col) {
+      if (window.innerWidth >= 992) {
+        col.style.setProperty("flex",      "0 0 25%", "important");
+        col.style.setProperty("max-width", "25%",     "important");
+        col.style.setProperty("width",     "25%",     "important");
+      } else {
+        col.style.setProperty("flex",      "0 0 50%", "important");
+        col.style.setProperty("max-width", "50%",     "important");
+        col.style.setProperty("width",     "50%",     "important");
+      }
+    });
+  }
+
+  fixProductGrid();
+  window.addEventListener("resize", fixProductGrid);
+
+});
