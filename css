@@ -2165,8 +2165,8 @@ section[section-id="8d32afe8-44af-4fc2-b430-a9ce33adb61f"] {
 /* =========================================================
    CARDS SLIDER
    section-id: a251f72a-0eef-4bb3-8d9d-cdf16054b957
-   FIX: إزالة الدائرة المزدوجة على أسهم Slick
-        + تعطيل zoom الصور
+   FIX FINAL: إزالة الدائرة المزدوجة على أسهم Slick
+              + تعطيل zoom الصور نهائياً
 ========================================================= */
 section[section-id="a251f72a-0eef-4bb3-8d9d-cdf16054b957"] {
   position: relative;
@@ -2195,22 +2195,20 @@ section[section-id="a251f72a-0eef-4bb3-8d9d-cdf16054b957"] .card-item-inner a {
   display: block;
 }
 
-/* إزالة الـ zoom وتثبيت نسبة الصورة بدون تكبير */
-section[section-id="a251f72a-0eef-4bb3-8d9d-cdf16054b957"] .card-item-inner img {
-  width: 100%;
-  height: auto;
-  aspect-ratio: 307 / 451;
-  object-fit: cover;
-  display: block;
-  border-radius: 18px;
+/* إزالة الـ zoom وتثبيت نسبة الصورة بدون تكبير - نهائي */
+section[section-id="a251f72a-0eef-4bb3-8d9d-cdf16054b957"] .card-item-inner img,
+section[section-id="a251f72a-0eef-4bb3-8d9d-cdf16054b957"] .card-item-inner img:hover,
+section[section-id="a251f72a-0eef-4bb3-8d9d-cdf16054b957"] .card-item:hover .card-item-inner img {
+  width: 100% !important;
+  height: auto !important;
+  aspect-ratio: 307 / 451 !important;
+  object-fit: cover !important;
+  display: block !important;
+  border-radius: 18px !important;
   transition: none !important;
   transform: none !important;
   filter: none !important;
-}
-
-section[section-id="a251f72a-0eef-4bb3-8d9d-cdf16054b957"] .card-item:hover .card-item-inner img {
-  transform: none !important;
-  filter: none !important;
+  scale: none !important;
 }
 
 section[section-id="a251f72a-0eef-4bb3-8d9d-cdf16054b957"] .card-content {
@@ -2265,13 +2263,18 @@ section[section-id="a251f72a-0eef-4bb3-8d9d-cdf16054b957"] .card-content .link.h
 }
 
 /* =========================================================
-   FIX أسهم Slick — إزالة الدائرة الفارغة المزدوجة
-   السبب: Slick يضع ::before بداخل الزر ويرسم دائرة
-   الحل: إخفاء ::before و ::after الأصليين تماماً
-         وتحويل الزر لـ flex نظيف بدون pseudo
+   FIX نهائي — أسهم Slick بدون دائرة مزدوجة
+   تعطيل كل pseudo-elements بقوة كاملة
 ========================================================= */
+
+/* إعادة ضبط الزر كاملاً من الصفر */
 section[section-id="a251f72a-0eef-4bb3-8d9d-cdf16054b957"] .slick-prev,
 section[section-id="a251f72a-0eef-4bb3-8d9d-cdf16054b957"] .slick-next {
+  all: unset !important;
+  box-sizing: border-box !important;
+  position: absolute !important;
+  top: 50% !important;
+  transform: translateY(-50%) !important;
   width: 46px !important;
   height: 46px !important;
   border-radius: 50% !important;
@@ -2284,26 +2287,36 @@ section[section-id="a251f72a-0eef-4bb3-8d9d-cdf16054b957"] .slick-next {
   justify-content: center !important;
   z-index: 20 !important;
   overflow: hidden !important;
+  cursor: pointer !important;
   padding: 0 !important;
   line-height: 1 !important;
+  font-size: 0 !important;
+  color: transparent !important;
 }
 
-/* إخفاء الـ pseudo-elements الخاصة بـ Slick نهائياً */
+/* إخفاء كل pseudo-elements بشكل نهائي لا رجعة فيه */
 section[section-id="a251f72a-0eef-4bb3-8d9d-cdf16054b957"] .slick-prev::before,
-section[section-id="a251f72a-0eef-4bb3-8d9d-cdf16054b957"] .slick-next::before,
 section[section-id="a251f72a-0eef-4bb3-8d9d-cdf16054b957"] .slick-prev::after,
+section[section-id="a251f72a-0eef-4bb3-8d9d-cdf16054b957"] .slick-next::before,
 section[section-id="a251f72a-0eef-4bb3-8d9d-cdf16054b957"] .slick-next::after {
+  content: "" !important;
   display: none !important;
-  content: none !important;
   width: 0 !important;
   height: 0 !important;
   opacity: 0 !important;
   visibility: hidden !important;
+  position: absolute !important;
+  pointer-events: none !important;
+  border: none !important;
+  background: none !important;
+  font-size: 0 !important;
+  line-height: 0 !important;
+  color: transparent !important;
 }
 
 section[section-id="a251f72a-0eef-4bb3-8d9d-cdf16054b957"] .slick-prev:hover,
 section[section-id="a251f72a-0eef-4bb3-8d9d-cdf16054b957"] .slick-next:hover {
-  transform: translateY(-2px);
+  transform: translateY(calc(-50% - 2px)) !important;
   box-shadow:
     0 12px 24px rgba(0,0,0,0.32),
     0 0 14px rgba(212,175,55,0.22) !important;
