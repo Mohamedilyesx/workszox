@@ -2163,129 +2163,6 @@ section[section-id="8d32afe8-44af-4fc2-b430-a9ce33adb61f"] {
 }
 
 /* =========================================================
-   Cards Section - Gold Dark Style
-   خاص بقسم مجموعة كروت مميزة
-========================================================= */
-
-section[section-id="a251f72a-0eef-4bb3-8d9d-cdf16054b957"] {
-  position: relative;
-}
-
-section[section-id="a251f72a-0eef-4bb3-8d9d-cdf16054b957"] .cards-slider {
-  position: relative;
-}
-
-section[section-id="a251f72a-0eef-4bb3-8d9d-cdf16054b957"] .card-item {
-  padding: 10px 14px 18px;
-}
-
-section[section-id="a251f72a-0eef-4bb3-8d9d-cdf16054b957"] .card-item-inner {
-  position: relative;
-  overflow: hidden;
-  border-radius: 20px;
-  background: linear-gradient(180deg, #1a1712 0%, #0e0d0b 100%);
-  border: 1px solid rgba(212,175,55,0.18);
-  box-shadow:
-    0 12px 30px rgba(0,0,0,0.28),
-    inset 0 1px 0 rgba(255,230,160,0.05);
-}
-
-section[section-id="a251f72a-0eef-4bb3-8d9d-cdf16054b957"] .card-item-inner img {
-  width: 100%;
-  aspect-ratio: 4 / 4.2;
-  object-fit: cover;
-  display: block;
-  border-radius: 18px;
-  transition: transform 0.45s ease, filter 0.45s ease;
-}
-
-section[section-id="a251f72a-0eef-4bb3-8d9d-cdf16054b957"] .card-item:hover .card-item-inner img {
-  transform: scale(1.04);
-  filter: brightness(1.03) saturate(1.04);
-}
-
-section[section-id="a251f72a-0eef-4bb3-8d9d-cdf16054b957"] .card-content {
-  text-align: center;
-  padding: 18px 18px 8px;
-}
-
-section[section-id="a251f72a-0eef-4bb3-8d9d-cdf16054b957"] .card-content .title {
-  margin-bottom: 10px;
-  font-size: 26px;
-  line-height: 1.3;
-  font-weight: 800;
-}
-
-section[section-id="a251f72a-0eef-4bb3-8d9d-cdf16054b957"] .card-content .title a {
-  color: #fff7e5 !important;
-  text-decoration: none !important;
-}
-
-section[section-id="a251f72a-0eef-4bb3-8d9d-cdf16054b957"] .card-content .description {
-  color: #e8dcc0 !important;
-  font-size: 15px;
-  line-height: 1.9;
-  max-width: 92%;
-  margin: 0 auto 18px;
-  min-height: 86px;
-}
-
-section[section-id="a251f72a-0eef-4bb3-8d9d-cdf16054b957"] .card-content .link.hbtn1 {
-  display: inline-flex !important;
-  align-items: center;
-  justify-content: center;
-  min-width: 150px;
-  height: 48px;
-  padding: 0 22px;
-  border-radius: 999px !important;
-  background: linear-gradient(180deg, #e0bb48 0%, #b17d12 100%) !important;
-  color: #17130c !important;
-  font-weight: 900;
-  text-decoration: none !important;
-  box-shadow:
-    0 10px 22px rgba(0,0,0,0.22),
-    inset 0 1px 0 rgba(255,245,200,0.35);
-  transition: all 0.25s ease;
-}
-
-section[section-id="a251f72a-0eef-4bb3-8d9d-cdf16054b957"] .card-content .link.hbtn1:hover {
-  transform: translateY(-2px);
-  box-shadow:
-    0 14px 30px rgba(0,0,0,0.28),
-    0 0 16px rgba(212,175,55,0.24);
-}
-
-section[section-id="a251f72a-0eef-4bb3-8d9d-cdf16054b957"] .slick-dots li button:before {
-  color: rgba(212,175,55,0.35) !important;
-  opacity: 1 !important;
-  font-size: 10px !important;
-}
-
-section[section-id="a251f72a-0eef-4bb3-8d9d-cdf16054b957"] .slick-dots li.slick-active button:before {
-  color: #d4af37 !important;
-}
-
-@media (max-width: 768px) {
-  section[section-id="a251f72a-0eef-4bb3-8d9d-cdf16054b957"] .card-item {
-    padding: 8px 6px 16px;
-  }
-
-  section[section-id="a251f72a-0eef-4bb3-8d9d-cdf16054b957"] .card-content {
-    padding: 16px 12px 8px;
-  }
-
-  section[section-id="a251f72a-0eef-4bb3-8d9d-cdf16054b957"] .card-content .title {
-    font-size: 22px;
-  }
-
-  section[section-id="a251f72a-0eef-4bb3-8d9d-cdf16054b957"] .card-content .description {
-    font-size: 14px;
-    min-height: auto;
-    max-width: 100%;
-  }
-}
-
-/* =========================================================
    JAWAKTV — CART + POPUP — COMPLETE FINAL v5
    امسح كل كود سلة/بوب آب السابق والصق هذا بدلاً عنه
    في نهاية ملف css بعد كل الكود الموجود
@@ -3384,5 +3261,455 @@ body[data-template="list_products"] .paddingPage {
 
   .count-products {
     font-size: 11.5px !important;
+  }
+}
+
+
+.cart-product-error-messages {
+    color: #ffffff;
+    font-weight: 900;
+    text-align: center;
+    background: red;
+    font-size: 15px;
+    border-radius: 50px;
+}
+
+
+
+/* =====================================================
+   فوتر جوك TV — الكود الكامل النهائي
+===================================================== */
+
+/* --- الخلفية العامة للفوتر --- */
+.footer-store-section.store-section {
+  background:
+    radial-gradient(ellipse at 50% 0%, rgba(218,174,73,.09) 0%, transparent 55%),
+    linear-gradient(180deg, #141109 0%, #0d0b07 100%) !important;
+  border-top: 1px solid rgba(218,174,73,.18) !important;
+  padding: 60px 0 40px !important;
+  position: relative !important;
+  overflow: hidden !important;
+}
+
+/* خط ذهبي متوهج في الأعلى */
+.footer-store-section.store-section::before {
+  content: '' !important;
+  position: absolute !important;
+  top: 0 !important;
+  left: 10% !important;
+  width: 80% !important;
+  height: 1px !important;
+  background: linear-gradient(90deg,
+    transparent,
+    rgba(218,174,73,.6) 30%,
+    #daae49 50%,
+    rgba(218,174,73,.6) 70%,
+    transparent) !important;
+  box-shadow: 0 0 18px rgba(218,174,73,.4) !important;
+}
+
+/* --- لوغو الفوتر --- */
+.footer-about-us-links-div .image-logo {
+  max-height: 70px !important;
+  width: auto !important;
+  margin-bottom: 18px !important;
+  filter: drop-shadow(0 0 8px rgba(218,174,73,.25)) !important;
+}
+
+/* --- نص وصف المتجر --- */
+.footer-about-us-links-div p.address.contactFooter {
+  color: rgba(248,231,185,.6) !important;
+  font-size: 13px !important;
+  line-height: 1.85 !important;
+  margin-bottom: 14px !important;
+  -webkit-text-fill-color: rgba(248,231,185,.6) !important;
+}
+
+/* --- هاتف وإيميل --- */
+.footer-about-us-links-div p.phone.contactFooter a,
+.footer-about-us-links-div p.email.contactFooter a {
+  color: rgba(218,174,73,.85) !important;
+  -webkit-text-fill-color: rgba(218,174,73,.85) !important;
+  font-size: 13px !important;
+  font-weight: 600 !important;
+  text-decoration: none !important;
+  display: inline-flex !important;
+  align-items: center !important;
+  gap: 6px !important;
+  transition: color .2s !important;
+}
+
+.footer-about-us-links-div p.phone.contactFooter a:hover,
+.footer-about-us-links-div p.email.contactFooter a:hover {
+  color: #daae49 !important;
+  -webkit-text-fill-color: #daae49 !important;
+}
+
+/* --- أيقونات السوشيال ميديا --- */
+.footer-about-us-links-div .social-icons {
+  gap: 10px !important;
+  margin-top: 18px !important;
+}
+
+.footer-about-us-links-div .social-icons a.hbtn1 {
+  width: 38px !important;
+  height: 38px !important;
+  border-radius: 10px !important;
+  background: rgba(218,174,73,.1) !important;
+  border: 1px solid rgba(218,174,73,.22) !important;
+  display: inline-flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  color: #daae49 !important;
+  font-size: 15px !important;
+  transition: all .25s ease !important;
+  padding: 0 !important;
+  text-decoration: none !important;
+}
+
+.footer-about-us-links-div .social-icons a.hbtn1:hover {
+  background: rgba(218,174,73,.22) !important;
+  border-color: rgba(218,174,73,.55) !important;
+  box-shadow: 0 4px 14px rgba(218,174,73,.2) !important;
+  transform: translateY(-2px) !important;
+}
+
+/* أيقونة Font Awesome */
+.footer-about-us-links-div .social-icons a.hbtn1 span {
+  color: #daae49 !important;
+  -webkit-text-fill-color: #daae49 !important;
+}
+
+/* أيقونة تيك توك SVG */
+.footer-about-us-links-div .social-icons a.hbtn1 svg {
+  fill: #daae49 !important;
+}
+
+.footer-about-us-links-div .social-icons a.hbtn1 svg path {
+  fill: #daae49 !important;
+}
+
+/* --- عناوين أعمدة الفوتر --- */
+.footer-about-us-links-div h2,
+.col-lg-auto.links h2,
+.col-lg-auto.links h2.vat-title {
+  font-size: 16px !important;
+  font-weight: 700 !important;
+  color: #daae49 !important;
+  -webkit-text-fill-color: #daae49 !important;
+  margin-bottom: 20px !important;
+  position: relative !important;
+  padding-bottom: 10px !important;
+}
+
+.footer-about-us-links-div h2 svg path,
+.col-lg-auto.links h2 svg path {
+  fill: #daae49 !important;
+}
+
+/* --- روابط الفوتر --- */
+.footer-about-us-links-div p a,
+.col-lg-auto.links p a {
+  color: rgba(248,231,185,.6) !important;
+  -webkit-text-fill-color: rgba(248,231,185,.6) !important;
+  font-size: 13.5px !important;
+  text-decoration: none !important;
+  display: inline-flex !important;
+  align-items: center !important;
+  gap: 7px !important;
+  padding: 5px 0 !important;
+  transition: all .2s ease !important;
+  position: relative !important;
+}
+
+.footer-about-us-links-div p a::before,
+.col-lg-auto.links p a::before {
+  content: '›' !important;
+  color: #daae49 !important;
+  font-size: 18px !important;
+  line-height: 1 !important;
+  opacity: 0 !important;
+  transform: translateX(5px) !important;
+  transition: all .2s ease !important;
+}
+
+.footer-about-us-links-div p a:hover,
+.col-lg-auto.links p a:hover {
+  color: #daae49 !important;
+  -webkit-text-fill-color: #daae49 !important;
+  padding-right: 8px !important;
+}
+
+.footer-about-us-links-div p a:hover::before,
+.col-lg-auto.links p a:hover::before {
+  opacity: 1 !important;
+  transform: translateX(0) !important;
+}
+
+/* --- رقم السجل التجاري --- */
+.footervattext {
+  color: rgba(248,231,185,.55) !important;
+  -webkit-text-fill-color: rgba(248,231,185,.55) !important;
+  font-size: 12.5px !important;
+}
+
+.footervattext.fw-bold {
+  color: rgba(218,174,73,.75) !important;
+  -webkit-text-fill-color: rgba(218,174,73,.75) !important;
+  font-size: 13px !important;
+}
+
+/* =====================================================
+   أيقونات الدفع والشحن — خلفية ذهبية
+===================================================== */
+.footer .icons .logistics-pay-icons,
+.logistics-pay-icons {
+  gap: 10px !important;
+  margin-top: 16px !important;
+  flex-wrap: wrap !important;
+}
+
+.footer .icons .logistics-pay-icons a,
+.logistics-pay-icons a {
+  display: inline-flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  background: linear-gradient(135deg,
+    rgba(218,174,73,.22),
+    rgba(218,174,73,.1)) !important;
+  border: 1px solid rgba(218,174,73,.35) !important;
+  border-radius: 12px !important;
+  padding: 7px 10px !important;
+  transition: all .25s ease !important;
+  box-shadow: 0 2px 8px rgba(218,174,73,.1) !important;
+}
+
+.footer .icons .logistics-pay-icons a:hover,
+.logistics-pay-icons a:hover {
+  background: linear-gradient(135deg,
+    rgba(218,174,73,.38),
+    rgba(218,174,73,.2)) !important;
+  border-color: rgba(218,174,73,.6) !important;
+  transform: translateY(-3px) !important;
+  box-shadow: 0 6px 18px rgba(218,174,73,.22) !important;
+}
+
+.footer .icons .logistics-pay-icons a img,
+.logistics-pay-icons a img {
+  height: 32px !important;
+  width: auto !important;
+  object-fit: contain !important;
+  filter: brightness(1.1) saturate(1.1) !important;
+}
+
+/* =====================================================
+   قسم Copyright السفلي — التعديل الكامل
+===================================================== */
+.footer .footer-copyrights-vat-certificate,
+.footer-copyrights-vat-certificate {
+  background: linear-gradient(180deg,
+    rgba(10,8,4,.98) 0%,
+    #070503 100%) !important;
+  border-top: 1px solid rgba(218,174,73,.12) !important;
+  padding: 20px 0 !important;
+  position: relative !important;
+}
+
+/* خط ذهبي متوهج فوق الكوبيرايت */
+.footer .footer-copyrights-vat-certificate::before,
+.footer-copyrights-vat-certificate::before {
+  content: '' !important;
+  position: absolute !important;
+  top: 0 !important;
+  left: 15% !important;
+  width: 70% !important;
+  height: 1px !important;
+  background: linear-gradient(90deg,
+    transparent,
+    rgba(218,174,73,.5) 30%,
+    rgba(218,174,73,.8) 50%,
+    rgba(218,174,73,.5) 70%,
+    transparent) !important;
+  box-shadow: 0 0 12px rgba(218,174,73,.3) !important;
+}
+
+/* المحتوى الداخلي للكوبيرايت */
+.footer .footer-copyrights-vat-certificate .container {
+  display: flex !important;
+  align-items: center !important;
+  justify-content: space-between !important;
+  flex-wrap: wrap !important;
+  gap: 12px !important;
+}
+
+/* نصوص الكوبيرايت */
+.footer .footer-copyrights-vat-certificate .container *,
+.footer .footer-copyrights-vat-certificate p,
+.footer .footer-copyrights-vat-certificate span,
+.footer .footer-copyrights-vat-certificate div {
+  color: rgba(248,231,185,.4) !important;
+  -webkit-text-fill-color: rgba(248,231,185,.4) !important;
+  font-size: 12.5px !important;
+}
+
+/* روابط الكوبيرايت */
+.footer .footer-copyrights-vat-certificate a {
+  color: rgba(218,174,73,.6) !important;
+  -webkit-text-fill-color: rgba(218,174,73,.6) !important;
+  text-decoration: none !important;
+  transition: color .2s !important;
+}
+
+.footer .footer-copyrights-vat-certificate a:hover {
+  color: #daae49 !important;
+  -webkit-text-fill-color: #daae49 !important;
+}
+
+/* شعار zid في الكوبيرايت */
+.footer .footer-copyrights-vat-certificate img {
+  height: 22px !important;
+  width: auto !important;
+  opacity: 0.55 !important;
+  filter: brightness(1.4) !important;
+  transition: opacity .2s !important;
+}
+
+.footer .footer-copyrights-vat-certificate img:hover {
+  opacity: 0.9 !important;
+}
+
+/* أيقونات VAT / شهادات */
+.footer .footer-copyrights-vat-certificate .vat-certificate-icons,
+.footer .footer-copyrights-vat-certificate .footer-vat-icons {
+  display: flex !important;
+  align-items: center !important;
+  gap: 10px !important;
+  flex-wrap: wrap !important;
+}
+
+.footer .footer-copyrights-vat-certificate .vat-certificate-icons img,
+.footer .footer-copyrights-vat-certificate .footer-vat-icons img {
+  height: 36px !important;
+  width: auto !important;
+  opacity: 0.75 !important;
+  border-radius: 6px !important;
+  background: rgba(218,174,73,.08) !important;
+  padding: 3px 6px !important;
+  border: 1px solid rgba(218,174,73,.15) !important;
+}
+
+/* =====================================================
+   فاصل بين الأعمدة (ديسكتوب)
+===================================================== */
+@media (min-width: 992px) {
+  .footer-store-section .col-lg-auto.links {
+    border-right: 1px solid rgba(218,174,73,.08) !important;
+    padding-right: 40px !important;
+    padding-left: 40px !important;
+  }
+
+  .footer-store-section .col-lg-3 {
+    padding-left: 40px !important;
+  }
+}
+
+/* =====================================================
+   موبايل — توسيط كامل لكل عناصر الفوتر
+===================================================== */
+@media (max-width: 991px) {
+
+  .footer-store-section.store-section {
+    padding: 40px 0 30px !important;
+  }
+
+  /* توسيط جميع الأعمدة */
+  .footer-store-section .row > div {
+    text-align: center !important;
+  }
+
+  /* لوغو في المنتصف */
+  .footer-about-us-links-div .image-logo {
+    display: block !important;
+    margin: 0 auto 18px !important;
+  }
+
+  /* النصوص والروابط في المنتصف */
+  .footer-about-us-links-div p,
+  .footer-about-us-links-div p a,
+  .col-lg-auto.links p a {
+    justify-content: center !important;
+    text-align: center !important;
+  }
+
+  /* أيقونات السوشيال في المنتصف */
+  .footer-about-us-links-div .social-icons {
+    justify-content: center !important;
+  }
+
+  /* عناوين الأعمدة في المنتصف */
+  .footer-about-us-links-div h2,
+  .col-lg-auto.links h2,
+  .col-lg-auto.links h2.vat-title {
+    text-align: center !important;
+    font-size: 15px !important;
+    margin-top: 10px !important;
+  }
+
+  /* أيقونات الدفع في المنتصف */
+  .footer .icons .logistics-pay-icons,
+  .logistics-pay-icons {
+    justify-content: center !important;
+  }
+
+  /* رقم السجل في المنتصف */
+  .vat-crn-sections {
+    justify-content: center !important;
+  }
+
+  /* business-center في المنتصف */
+  .business-center {
+    justify-content: center !important;
+  }
+
+  /* فاصل بين الأعمدة موبايل */
+  .footer-store-section .col-lg-auto.links {
+    border-right: none !important;
+    border-top: 1px solid rgba(218,174,73,.08) !important;
+    padding: 20px 15px 0 !important;
+    margin-top: 10px !important;
+  }
+
+  /* كوبيرايت في المنتصف */
+  .footer .footer-copyrights-vat-certificate .container {
+    flex-direction: column !important;
+    align-items: center !important;
+    text-align: center !important;
+    gap: 10px !important;
+  }
+
+  .footer .footer-copyrights-vat-certificate .vat-certificate-icons,
+  .footer .footer-copyrights-vat-certificate .footer-vat-icons {
+    justify-content: center !important;
+  }
+}
+
+/* =====================================================
+   موبايل صغير جداً
+===================================================== */
+@media (max-width: 480px) {
+
+  .footer .icons .logistics-pay-icons a img,
+  .logistics-pay-icons a img {
+    height: 26px !important;
+  }
+
+  .footer-about-us-links-div h2,
+  .col-lg-auto.links h2 {
+    font-size: 14px !important;
+  }
+
+  .footer-about-us-links-div .social-icons a.hbtn1 {
+    width: 34px !important;
+    height: 34px !important;
   }
 }
