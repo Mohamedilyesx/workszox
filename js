@@ -329,7 +329,6 @@ document.addEventListener("DOMContentLoaded", function () {
 
     document.body.appendChild(nav);
 
-    /* ===== زر البحث ===== */
     var searchBtn = nav.querySelector(".arena-search-btn");
     if (searchBtn) {
       searchBtn.addEventListener("click", function (e) {
@@ -382,7 +381,6 @@ document.addEventListener("DOMContentLoaded", function () {
       });
     }
 
-    /* ===== تحديد الصفحة النشطة ===== */
     function markActiveItem() {
       var current = window.location.pathname;
       nav.querySelectorAll(".arena-mobile-nav-link").forEach(function (link) {
@@ -393,76 +391,19 @@ document.addEventListener("DOMContentLoaded", function () {
       });
     }
 
-    /* ===== تحديث عداد السلة — النسخة الذكية ===== */
     function updateCartBadge() {
-      var badge = document.getElementById("arena-mobile-cart-badge");
+      var badge   = document.getElementById("arena-mobile-cart-badge");
       if (!badge) return;
-
-      var selectors = [
-        ".cart-count", ".count", ".cart_counter",
-        ".header-cart-count", ".mini-cart-count",
-        ".cart-badge", ".wc-link .badge",
-        ".wc-link2 .badge", ".header-wc .badge",
-        ".header-wc [class*='count']"
-      ];
-
-      var count = "0";
-      for (var i = 0; i < selectors.length; i++) {
-        var els = document.querySelectorAll(selectors[i]);
-        for (var j = 0; j < els.length; j++) {
-          var el = els[j];
-          if (el && el.closest && !el.closest(".arena-mobile-bottom-bar")) {
-            var txt = (el.textContent || el.getAttribute("data-count") || "").replace(/[^\d]/g, "");
-            if (txt && txt !== "0") { count = txt; break; }
-          }
-        }
-        if (count !== "0") break;
-      }
-
+      var countEl = document.querySelector(".cart-count, .count, .cart_counter, .header-cart-count, .mini-cart-count");
+      if (!countEl) return;
+      var count = (countEl.textContent || "").replace(/[^\d]/g, "");
+      if (!count) return;
       badge.textContent = count;
-      if (count !== "0") {
-        badge.classList.add("has-count");
-      } else {
-        badge.classList.remove("has-count");
-      }
+      badge.classList.add("has-count");
     }
-
-    /* ===== مراقب DOM — يتابع أي تغيير في الصفحة ===== */
-    var cartObserver = new MutationObserver(function () {
-      updateCartBadge();
-    });
-    cartObserver.observe(document.body, {
-      childList: true,
-      subtree: true,
-      characterData: true,
-      attributes: true,
-      attributeFilter: ["class", "data-count"]
-    });
-
-    /* ===== اعتراض XHR — طلبات زد Ajax ===== */
-    var _origOpen = XMLHttpRequest.prototype.open;
-    XMLHttpRequest.prototype.open = function () {
-      this.addEventListener("load", function () {
-        setTimeout(updateCartBadge, 400);
-        setTimeout(updateCartBadge, 1000);
-      });
-      _origOpen.apply(this, arguments);
-    };
-
-    /* ===== اعتراض Fetch ===== */
-    var _origFetch = window.fetch;
-    window.fetch = function () {
-      return _origFetch.apply(this, arguments).then(function (res) {
-        setTimeout(updateCartBadge, 400);
-        setTimeout(updateCartBadge, 1000);
-        return res;
-      });
-    };
 
     markActiveItem();
     updateCartBadge();
-    setTimeout(updateCartBadge, 1500);
-    setTimeout(updateCartBadge, 3000);
   }
 
 
@@ -573,6 +514,11 @@ document.addEventListener("DOMContentLoaded", function () {
   }
 })();
 
+
+// ======= كوداتك السابقة هنا =======
+// كود السلة...
+// كود الهيدر...
+// الخ...
 
 // ======= في الأسفل تماماً =======
 document.addEventListener("DOMContentLoaded", function () {
