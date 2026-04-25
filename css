@@ -81,7 +81,6 @@ section.section-id328e3908-31ab-4ba2-a0a1-de7e200ad50e .slide-0 {
   display: none !important;
 }
 
-/* غلاف الهيدر */
 .vs-header.layout3 .sticky-active > .container.custom-container {
   position: relative !important;
   padding-top: 10px !important;
@@ -97,7 +96,6 @@ section.section-id328e3908-31ab-4ba2-a0a1-de7e200ad50e .slide-0 {
   z-index: -1;
 }
 
-/* الصف الرئيسي */
 .vs-header.layout3 .sticky-active > .container.custom-container > .d-flex {
   position: relative !important;
   display: flex !important;
@@ -107,7 +105,6 @@ section.section-id328e3908-31ab-4ba2-a0a1-de7e200ad50e .slide-0 {
   gap: 24px !important;
 }
 
-/* كتلة الشعار الأصلي + القائمة */
 .vs-header.layout3 .sticky-active > .container.custom-container > .d-flex > .d-flex.align-items-center.justify-content-between {
   flex: 1 1 auto !important;
   display: flex !important;
@@ -118,7 +115,6 @@ section.section-id328e3908-31ab-4ba2-a0a1-de7e200ad50e .slide-0 {
   position: relative !important;
 }
 
-/* الشعار الأصلي داخل الكتلة */
 .vs-header.layout3 .header-logo.style3.text-center {
   margin: 0 !important;
 }
@@ -137,7 +133,6 @@ section.section-id328e3908-31ab-4ba2-a0a1-de7e200ad50e .slide-0 {
   margin: 0 auto !important;
 }
 
-/* النسخة الجديدة في وسط الهيدر */
 .vs-header-logo-center {
   position: absolute !important;
   left: 50% !important;
@@ -180,7 +175,6 @@ section.section-id328e3908-31ab-4ba2-a0a1-de7e200ad50e .slide-0 {
   display: none !important;
 }
 
-/* إخفاء الشعار الأصلي في الديسكتوب فقط حتى ما يظهر مكرر */
 @media (min-width: 992px) {
   .vs-header.layout3 .sticky-active > .container.custom-container > .d-flex > .d-flex.align-items-center.justify-content-between > .header-logo.style3.text-center {
     visibility: hidden !important;
@@ -191,7 +185,6 @@ section.section-id328e3908-31ab-4ba2-a0a1-de7e200ad50e .slide-0 {
   }
 }
 
-/* القائمة على اليمين */
 .vs-header.layout3 nav.main-menu.d-none.d-lg-block {
   display: flex !important;
   align-items: center !important;
@@ -214,7 +207,6 @@ section.section-id328e3908-31ab-4ba2-a0a1-de7e200ad50e .slide-0 {
   position: relative !important;
 }
 
-/* إزالة الخط الغريب */
 .vs-header.layout3 nav.main-menu .top-level-link a svg,
 .vs-header.layout3 nav.main-menu .top-level-link a::before,
 .vs-header.layout3 nav.main-menu .top-level-link a::after,
@@ -242,7 +234,6 @@ section.section-id328e3908-31ab-4ba2-a0a1-de7e200ad50e .slide-0 {
   color: #c9a25f !important;
 }
 
-/* الأيقونات على اليسار */
 .vs-header.layout3 .header-wc.style2 {
   flex: 0 0 220px !important;
   min-width: 220px !important;
@@ -264,14 +255,12 @@ section.section-id328e3908-31ab-4ba2-a0a1-de7e200ad50e .slide-0 {
   fill: #fff !important;
 }
 
-/* شارة السلة */
 .vs-header.layout3 .cart-badge {
   background: #c9a25f !important;
   color: #000 !important;
   border: 0 !important;
 }
 
-/* إزالة أي حدود سفلية */
 .vs-header.layout3 *,
 .vs-header.layout3 .sticky-active,
 .vs-header.layout3 .sticky-wrapper,
@@ -437,7 +426,6 @@ section.section-id328e3908-31ab-4ba2-a0a1-de7e200ad50e .slide-0 {
   }
 }
 
-/* ديسكتوب أصغر */
 @media (min-width: 992px) and (max-width: 1250px) {
   .vs-header.layout3 .sticky-active > .container.custom-container > .d-flex > .d-flex.align-items-center.justify-content-between {
     padding-right: 260px !important;
@@ -2177,6 +2165,8 @@ section[section-id="8d32afe8-44af-4fc2-b430-a9ce33adb61f"] {
 /* =========================================================
    CARDS SLIDER
    section-id: a251f72a-0eef-4bb3-8d9d-cdf16054b957
+   FIX: إزالة الدائرة المزدوجة على أسهم Slick
+        + تعطيل zoom الصور
 ========================================================= */
 section[section-id="a251f72a-0eef-4bb3-8d9d-cdf16054b957"] {
   position: relative;
@@ -2205,6 +2195,7 @@ section[section-id="a251f72a-0eef-4bb3-8d9d-cdf16054b957"] .card-item-inner a {
   display: block;
 }
 
+/* إزالة الـ zoom وتثبيت نسبة الصورة بدون تكبير */
 section[section-id="a251f72a-0eef-4bb3-8d9d-cdf16054b957"] .card-item-inner img {
   width: 100%;
   height: auto;
@@ -2212,12 +2203,14 @@ section[section-id="a251f72a-0eef-4bb3-8d9d-cdf16054b957"] .card-item-inner img 
   object-fit: cover;
   display: block;
   border-radius: 18px;
-  transition: transform 0.35s ease, filter 0.35s ease;
+  transition: none !important;
+  transform: none !important;
+  filter: none !important;
 }
 
 section[section-id="a251f72a-0eef-4bb3-8d9d-cdf16054b957"] .card-item:hover .card-item-inner img {
-  transform: scale(1.025);
-  filter: brightness(1.02);
+  transform: none !important;
+  filter: none !important;
 }
 
 section[section-id="a251f72a-0eef-4bb3-8d9d-cdf16054b957"] .card-content {
@@ -2271,43 +2264,68 @@ section[section-id="a251f72a-0eef-4bb3-8d9d-cdf16054b957"] .card-content .link.h
     0 0 14px rgba(212,175,55,0.20);
 }
 
+/* =========================================================
+   FIX أسهم Slick — إزالة الدائرة الفارغة المزدوجة
+   السبب: Slick يضع ::before بداخل الزر ويرسم دائرة
+   الحل: إخفاء ::before و ::after الأصليين تماماً
+         وتحويل الزر لـ flex نظيف بدون pseudo
+========================================================= */
 section[section-id="a251f72a-0eef-4bb3-8d9d-cdf16054b957"] .slick-prev,
 section[section-id="a251f72a-0eef-4bb3-8d9d-cdf16054b957"] .slick-next {
-  width: 50px !important;
-  height: 50px !important;
-  border-radius: 999px !important;
+  width: 46px !important;
+  height: 46px !important;
+  border-radius: 50% !important;
   background: linear-gradient(180deg, #e1ba47 0%, #ad7b12 100%) !important;
   box-shadow:
-    0 12px 24px rgba(0,0,0,0.26),
-    inset 0 1px 0 rgba(255,246,204,0.35) !important;
+    0 8px 20px rgba(0,0,0,0.28),
+    inset 0 1px 0 rgba(255,246,204,0.30) !important;
   display: flex !important;
-  align-items: center;
-  justify-content: center;
+  align-items: center !important;
+  justify-content: center !important;
   z-index: 20 !important;
+  overflow: hidden !important;
+  padding: 0 !important;
+  line-height: 1 !important;
+}
+
+/* إخفاء الـ pseudo-elements الخاصة بـ Slick نهائياً */
+section[section-id="a251f72a-0eef-4bb3-8d9d-cdf16054b957"] .slick-prev::before,
+section[section-id="a251f72a-0eef-4bb3-8d9d-cdf16054b957"] .slick-next::before,
+section[section-id="a251f72a-0eef-4bb3-8d9d-cdf16054b957"] .slick-prev::after,
+section[section-id="a251f72a-0eef-4bb3-8d9d-cdf16054b957"] .slick-next::after {
+  display: none !important;
+  content: none !important;
+  width: 0 !important;
+  height: 0 !important;
+  opacity: 0 !important;
+  visibility: hidden !important;
 }
 
 section[section-id="a251f72a-0eef-4bb3-8d9d-cdf16054b957"] .slick-prev:hover,
 section[section-id="a251f72a-0eef-4bb3-8d9d-cdf16054b957"] .slick-next:hover {
   transform: translateY(-2px);
   box-shadow:
-    0 14px 28px rgba(0,0,0,0.30),
-    0 0 16px rgba(212,175,55,0.22) !important;
+    0 12px 24px rgba(0,0,0,0.32),
+    0 0 14px rgba(212,175,55,0.22) !important;
 }
 
 section[section-id="a251f72a-0eef-4bb3-8d9d-cdf16054b957"] .slick-prev {
-  right: -22px !important;
+  right: -20px !important;
   left: auto !important;
 }
 
 section[section-id="a251f72a-0eef-4bb3-8d9d-cdf16054b957"] .slick-next {
-  left: -22px !important;
+  left: -20px !important;
   right: auto !important;
 }
 
+/* أيقونة السهم الداخلية */
 section[section-id="a251f72a-0eef-4bb3-8d9d-cdf16054b957"] .slick-prev i,
 section[section-id="a251f72a-0eef-4bb3-8d9d-cdf16054b957"] .slick-next i {
   color: #14110c !important;
-  font-size: 18px !important;
+  font-size: 16px !important;
+  line-height: 1 !important;
+  display: block !important;
 }
 
 section[section-id="a251f72a-0eef-4bb3-8d9d-cdf16054b957"] .slick-dots li button:before {
@@ -2341,15 +2359,15 @@ section[section-id="a251f72a-0eef-4bb3-8d9d-cdf16054b957"] .slick-dots li.slick-
 
   section[section-id="a251f72a-0eef-4bb3-8d9d-cdf16054b957"] .slick-prev,
   section[section-id="a251f72a-0eef-4bb3-8d9d-cdf16054b957"] .slick-next {
-    width: 40px !important;
-    height: 40px !important;
+    width: 38px !important;
+    height: 38px !important;
   }
 
   section[section-id="a251f72a-0eef-4bb3-8d9d-cdf16054b957"] .slick-prev {
-    right: 4px !important;
+    right: 2px !important;
   }
 
   section[section-id="a251f72a-0eef-4bb3-8d9d-cdf16054b957"] .slick-next {
-    left: 4px !important;
+    left: 2px !important;
   }
 }
