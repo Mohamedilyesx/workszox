@@ -130,99 +130,98 @@ document.addEventListener("DOMContentLoaded", function () {
     });
   }
 
-  /* =========================================================
-     5) قسم تفاعلي بالمميزات
-  ========================================================= */
-  function buildInteractiveFeaturesSection() {
-    var section = document.querySelector(
-      'section[section-id="8d32afe8-44af-4fc2-b430-a9ce33adb61f"]'
-    );
-    if (!section) return;
+/* =========================================================
+   5) قسم تفاعلي بالمميزات
+========================================================= */
+function buildInteractiveFeaturesSection() {
+  var section = document.querySelector(
+    'section[section-id="8d32afe8-44af-4fc2-b430-a9ce33adb61f"]'
+  );
+  if (!section) return;
 
-    var features = [
-      {
-        key: "movies", label: "الأفلام",
-        title: "مكتبة أفلام ضخمة",
-        desc: "أكثر من 150,000 فيلم و40,000 مسلسل بجودة عالية ومحتوى متجدد لتجد دائمًا ما يستحق المشاهدة.",
-        icon: '<svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="5" width="18" height="14" rx="2"></rect><path d="M8 5v14"></path><path d="M16 5v14"></path><path d="M3 10h18"></path><path d="M3 14h18"></path></svg>'
-      },
-      {
-        key: "sports", label: "الرياضة",
-        title: "تغطية رياضية قوية",
-        desc: "قنوات رياضية وبث متجدد للأحداث المهمة مع استقرار أفضل وقت الذروة لعشاق المباريات والمتابعة المباشرة.",
-        icon: '<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 18c4-8 8-12 12-12"></path><path d="M8 6c1.5 1.5 2.5 2.5 4 4"></path><path d="M6 14c1.5 1.5 2.5 2.5 4 4"></path></svg>'
-      },
-      {
-        key: "channels", label: "القنوات",
-        title: "تنوع كبير في القنوات",
-        desc: "وصول واسع إلى باقات متنوعة من القنوات الترفيهية والرياضية لتستمتع بمحتوى أكثر في مكان واحد.",
-        icon: '<svg viewBox="0 0 24 24" aria-hidden="true"><rect x="4" y="6" width="16" height="10" rx="2"></rect><path d="M10 20h4"></path><path d="M12 16v4"></path></svg>'
-      },
-      {
-        key: "devices", label: "الأجهزة",
-        title: "تشغيل مرن على كل أجهزتك",
-        desc: "متوافق مع الشاشات الذكية، الجوال، التابلت، Apple TV وAndroid TV والكمبيوتر لتشاهد بالطريقة التي تناسبك.",
-        icon: '<svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="5" width="13" height="9" rx="2"></rect><rect x="17" y="8" width="4" height="8" rx="1"></rect><path d="M8 19h3"></path></svg>'
-      }
-    ];
+  var features = [
+    {
+      key: "movies", label: "أفلام",
+      title: "مكتبة أفلام ضخمة",
+      desc: "أكثر من 150,000 فيلم بجودة HD و4K، من أحدث الإصدارات إلى كلاسيكيات السينما العالمية — كل ما تريد مشاهدته في مكان واحد.",
+icon: '<svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M17 10.5V7a1 1 0 0 0-1-1H4a1 1 0 0 0-1 1v10a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1v-3.5l4 4v-11l-4 4z" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round" stroke-linecap="round"/></svg>'    },
+    {
+      key: "series", label: "مسلسلات",
+      title: "آلاف المسلسلات بلا انقطاع",
+      desc: "تابع أشهر المسلسلات العربية والعالمية والتركية بمحتوى متجدد يومياً، مع دعم التشغيل المستمر بين الحلقات دون توقف.",
+      icon: '<svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><rect x="2" y="5" width="20" height="14" rx="2" stroke="currentColor" stroke-width="1.8"/><path d="M10 9l6 3-6 3V9z" fill="currentColor"/><path d="M2 9h3M19 9h3M2 15h3M19 15h3" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg>'
+    },
+    {
+      key: "sports", label: "رياضة",
+      title: "تغطية رياضية مباشرة",
+      desc: "شاهد مباريات كرة القدم والدوريات العالمية بجودة عالية واستقرار ممتاز وقت الذروة — دون تقطع أو تأخير.",
+      icon: '<svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M6 3h12l-1 7a5 5 0 0 1-10 0L6 3z" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/><path d="M6 6H3a1 1 0 0 0-1 1v1a4 4 0 0 0 4 4M18 6h3a1 1 0 0 1 1 1v1a4 4 0 0 1-4 4" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/><path d="M12 17v3M8 20h8" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg>'
+    },
+    {
+      key: "anime", label: "أنمي",
+      title: "عالم الأنمي بلا حدود",
+      desc: "استمتع بمئات المسلسلات والأفلام الأنمي من كلاسيكيات الثمانينات حتى أحدث إصدارات الموسم الجاري، مدبلجة ومترجمة.",
+      icon: '<svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M12 2c-1 2.5-.5 4.5 1 6-2-.5-3.5-2-4-4C7 6 6 9 7 11.5 5.5 11 4.5 9.5 4 8c-.5 2.5.5 5 2.5 6.5C5 16 4.5 18 5 19.5 6.5 22 9.5 22 12 22s5.5 0 7-2.5c.5-1.5 0-3.5-1.5-5C19.5 13 20.5 10.5 20 8c-.5 1.5-1.5 3-3 3.5C18 9 18 6 16 4c-.5 2-2 3.5-4 4 1.5-1.5 2-3.5 1-5C13 3 12.5 2.5 12 2z" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/><path d="M9 16c1 1.5 5 1.5 6 0" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg>'
+    }
+  ];
 
-    section.innerHTML =
-      '<div class="jawak-interactive-block">' +
-        '<div class="jawak-interactive-shell">' +
-          '<div class="jawak-media-card">' +
-            '<video autoplay muted loop playsinline preload="auto">' +
-              '<source src="https://green-camel-228650.hostingersite.com/wp-content/uploads/2026/04/0203-copy-1-copy-copy-11.mp4">' +
-            '</video>' +
-          '</div>' +
-          '<div class="jawak-content-side">' +
-            '<div class="jawak-top-badge">تجربة أقوى. محتوى أكثر</div>' +
-            '<h2 class="jawak-main-title">كل ما تحتاجه في اشتراك واحد</h2>' +
-            '<p class="jawak-subtitle">اختر الميزة التي تهمك لتتعرف بسرعة على أبرز نقاط القوة في اشتراك Jawak TV، ثم انتقل مباشرة إلى صفحة الشراء.</p>' +
-            '<div class="jawak-tabs" role="tablist" aria-label="مميزات الاشتراك"></div>' +
-            '<div class="jawak-feature-view" id="jawak-feature-view">' +
-              '<h3 class="jawak-feature-title"></h3>' +
-              '<p class="jawak-feature-desc"></p>' +
-              '<a class="jawak-buy-btn" href="https://jawaktv.com/products/jawak-strong-1-month-sports-movies" target="_blank" rel="noopener noreferrer">شراء الآن</a>' +
-            '</div>' +
+  section.innerHTML =
+    '<div class="jawak-interactive-block">' +
+      '<div class="jawak-interactive-shell">' +
+        '<div class="jawak-media-card">' +
+          '<video autoplay muted loop playsinline preload="auto">' +
+            '<source src="https://green-camel-228650.hostingersite.com/wp-content/uploads/2026/04/0203-copy-1-copy-copy-11.mp4">' +
+          '</video>' +
+        '</div>' +
+        '<div class="jawak-content-side">' +
+          '<div class="jawak-top-badge">تجربة أقوى. محتوى أكثر</div>' +
+          '<h2 class="jawak-main-title">كل ما تحتاجه في اشتراك واحد</h2>' +
+          '<p class="jawak-subtitle">اختر القسم الذي يهمك لتتعرف على أبرز مميزات اشتراك Jawak TV، ثم انتقل مباشرة لصفحة الشراء.</p>' +
+          '<div class="jawak-tabs" role="tablist" aria-label="مميزات الاشتراك"></div>' +
+          '<div class="jawak-feature-view" id="jawak-feature-view">' +
+            '<h3 class="jawak-feature-title"></h3>' +
+            '<p class="jawak-feature-desc"></p>' +
+            '<a class="jawak-buy-btn" href="https://jawaktv.com/products/" target="_blank" rel="noopener noreferrer">شراء الآن</a>' +
           '</div>' +
         '</div>' +
-      '</div>';
+      '</div>' +
+    '</div>';
 
-    var tabsContainer = section.querySelector(".jawak-tabs");
-    var titleEl = section.querySelector(".jawak-feature-title");
-    var descEl  = section.querySelector(".jawak-feature-desc");
-    var featureView = section.querySelector(".jawak-feature-view");
+  var tabsContainer = section.querySelector(".jawak-tabs");
+  var titleEl       = section.querySelector(".jawak-feature-title");
+  var descEl        = section.querySelector(".jawak-feature-desc");
+  var featureView   = section.querySelector(".jawak-feature-view");
 
-    function renderFeature(index) {
-      var feature = features[index];
-      if (!feature) return;
-      titleEl.textContent = feature.title;
-      descEl.textContent  = feature.desc;
-      featureView.classList.remove("is-animating");
-      void featureView.offsetWidth;
-      featureView.classList.add("is-animating");
-      section.querySelectorAll(".jawak-tab-btn").forEach(function (btn, i) {
-        btn.classList.toggle("active", i === index);
-        btn.setAttribute("aria-selected", i === index ? "true" : "false");
-      });
-    }
-
-    features.forEach(function (feature, index) {
-      var btn = document.createElement("button");
-      btn.type = "button";
-      btn.className = "jawak-tab-btn" + (index === 0 ? " active" : "");
-      btn.setAttribute("role", "tab");
-      btn.setAttribute("aria-selected", index === 0 ? "true" : "false");
-      btn.innerHTML =
-        '<span class="jawak-tab-icon">' + feature.icon + '</span>' +
-        '<span class="jawak-tab-label">' + feature.label + '</span>';
-      btn.addEventListener("click", function () { renderFeature(index); });
-      tabsContainer.appendChild(btn);
+  function renderFeature(index) {
+    var feature = features[index];
+    if (!feature) return;
+    titleEl.textContent = feature.title;
+    descEl.textContent  = feature.desc;
+    featureView.classList.remove("is-animating");
+    void featureView.offsetWidth;
+    featureView.classList.add("is-animating");
+    section.querySelectorAll(".jawak-tab-btn").forEach(function (btn, i) {
+      btn.classList.toggle("active", i === index);
+      btn.setAttribute("aria-selected", i === index ? "true" : "false");
     });
-
-    renderFeature(0);
   }
 
+  features.forEach(function (feature, index) {
+    var btn = document.createElement("button");
+    btn.type = "button";
+    btn.className = "jawak-tab-btn" + (index === 0 ? " active" : "");
+    btn.setAttribute("role", "tab");
+    btn.setAttribute("aria-selected", index === 0 ? "true" : "false");
+    btn.innerHTML =
+      '<span class="jawak-tab-icon">' + feature.icon + '</span>' +
+      '<span class="jawak-tab-label">' + feature.label + '</span>';
+    btn.addEventListener("click", function () { renderFeature(index); });
+    tabsContainer.appendChild(btn);
+  });
+
+  renderFeature(0);
+}
+  
   /* =========================================================
      6) شريط سلة عائم (صفحة المنتج فقط)
   ========================================================= */
