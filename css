@@ -11,11 +11,13 @@ section.section-id328e3908-31ab-4ba2-a0a1-de7e200ad50e .slide-0 {
   overflow: hidden !important;
 }
 
-.categories.style1 .xc-category-one__item-inner .img, .categories.style1 .xc-category-one__item-inner .xc-category-one__img {
+.categories.style1 .xc-category-one__item-inner .img,
+.categories.style1 .xc-category-one__item-inner .xc-category-one__img {
     height: 150px;
 }
 
-.categories.style1 .xc-category-one__item-inner .img i, .categories.style1 .xc-category-one__img img {
+.categories.style1 .xc-category-one__item-inner .img i,
+.categories.style1 .xc-category-one__img img {
     border-radius: 20%;
     border: TRANSPARENT;
 }
@@ -23,10 +25,10 @@ section.section-id328e3908-31ab-4ba2-a0a1-de7e200ad50e .slide-0 {
 .blog-text p {
     color: #ffffff;
 }
-.card-shape  {
-    background-color: transparent!important;
-  border: transparent;
 
+.card-shape {
+    background-color: transparent !important;
+    border: transparent;
 }
 
 .slide-0 .custom-bg-video {
@@ -39,12 +41,11 @@ section.section-id328e3908-31ab-4ba2-a0a1-de7e200ad50e .slide-0 {
   pointer-events: none !important;
   background: #000 !important;
 }
-.pb-80  {
-    padding-bottom: 20px!important;
-    padding-top: 20px!important;
+
+.pb-80 {
+    padding-bottom: 20px !important;
+    padding-top: 20px !important;
 }
-
-
 
 .slide-0::before {
   content: "";
@@ -68,36 +69,51 @@ section.section-id328e3908-31ab-4ba2-a0a1-de7e200ad50e .slide-0 {
   z-index: 2 !important;
 }
 
-
-.home-products-section.style1 .slick-prev, .home-products-section.style1 .slick-next, .categories .owl-carousel .owl-nav button.owl-next, .categories .owl-carousel .owl-nav button.owl-prev {
-
-        border-radius: 50px!important;
-    }
+.home-products-section.style1 .slick-prev,
+.home-products-section.style1 .slick-next,
+.categories .owl-carousel .owl-nav button.owl-next,
+.categories .owl-carousel .owl-nav button.owl-prev {
+    border-radius: 50px !important;
+}
 
 /* =========================================================
    HEADER OVER HERO
 ========================================================= */
 .ParentMainSlider {
   position: relative !important;
-  margin-top: -92px !important;
+  margin-top: -84px !important;
   z-index: 0 !important;
 }
 
+.vs-header.layout3.scrollUp {
+  top: 0 !important;
+  visibility: visible !important;
+  opacity: 1 !important;
+}
+
+/* ✅ إزالة padding زائد من الـ media query الافتراضي */
 .vs-header.layout3 {
-  position: relative !important;
   z-index: 50 !important;
   background: transparent !important;
   border: 0 !important;
   box-shadow: none !important;
+  padding: 0 !important;
 }
 
-.vs-header.layout3,
+/* ✅ إلغاء padding المنصة على الهاتف */
+@media (max-width: 992px) {
+  .vs-header.layout3 {
+    padding: 0 !important;
+  }
+}
+
 .vs-header.layout3 .sticky-wrapper,
 .vs-header.layout3 .sticky-active,
 .vs-header.layout3 .container.custom-container {
   background: transparent !important;
   box-shadow: none !important;
   border: 0 !important;
+  padding: 0 !important;
 }
 
 .vs-header.layout3::before,
@@ -111,28 +127,41 @@ section.section-id328e3908-31ab-4ba2-a0a1-de7e200ad50e .slide-0 {
   display: none !important;
 }
 
+/* ✅ خلفية عند النزول — بدون overflow وبدون ظل مقطوع */
+.vs-header.layout3 .fixed-header,
+.vs-header.layout3 .sticky-active.fixed-header,
+.vs-header.layout3 .sticky-wrapper.fixed-header {
+  background: rgba(10, 8, 0, 0.90) !important;
+  backdrop-filter: blur(14px) !important;
+  -webkit-backdrop-filter: blur(14px) !important;
+  box-shadow: none !important;
+  border-bottom: 1px solid rgba(201,162,95,0.16) !important;
+  overflow: visible !important;
+}
+
 .vs-header.layout3 .sticky-active > .container.custom-container {
   position: relative !important;
-  padding-top: 10px !important;
-  padding-bottom: 10px !important;
+  padding-top: 0 !important;
+  padding-bottom: 0 !important;
+  box-shadow: none !important;
+  overflow: visible !important;
 }
 
 .vs-header.layout3 .sticky-active > .container.custom-container::before {
-  content: "";
-  position: absolute;
-  inset: 0;
-  background: linear-gradient(to bottom, rgba(0,0,0,.34), rgba(0,0,0,.12));
-  pointer-events: none;
-  z-index: -1;
+  display: none !important;
+  content: none !important;
 }
 
+/* ✅ ارتفاع الهيدر محكوم فقط بـ min-height */
 .vs-header.layout3 .sticky-active > .container.custom-container > .d-flex {
   position: relative !important;
   display: flex !important;
   align-items: center !important;
   justify-content: space-between !important;
-  min-height: 84px !important;
+  min-height: 80px !important;
   gap: 24px !important;
+  padding-top: 0 !important;
+  padding-bottom: 0 !important;
 }
 
 .vs-header.layout3 .sticky-active > .container.custom-container > .d-flex > .d-flex.align-items-center.justify-content-between {
@@ -157,7 +186,7 @@ section.section-id328e3908-31ab-4ba2-a0a1-de7e200ad50e .slide-0 {
 }
 
 .vs-header.layout3 .header-logo.style3.text-center img.image-logo.d-none.d-md-block {
-  max-height: 58px !important;
+  max-height: 56px !important;
   width: auto !important;
   display: block !important;
   margin: 0 auto !important;
@@ -196,7 +225,7 @@ section.section-id328e3908-31ab-4ba2-a0a1-de7e200ad50e .slide-0 {
 
 .vs-header-logo-center img.image-logo.d-none.d-md-block {
   display: block !important;
-  max-height: 58px !important;
+  max-height: 56px !important;
   width: auto !important;
   margin: 0 auto !important;
 }
@@ -300,6 +329,173 @@ section.section-id328e3908-31ab-4ba2-a0a1-de7e200ad50e .slide-0 {
 .vs-header.layout3 .header-wc {
   border-bottom: 0 !important;
 }
+
+/* =========================================================
+   MOBILE HEADER — كود CSS شامل كامل نهائي
+========================================================= */
+@media (max-width: 991px) {
+
+  .ParentMainSlider {
+    margin-top: -64px !important;
+  }
+
+  .vs-header.layout3 .sticky-active {
+    height: 64px !important;
+    min-height: 64px !important;
+    max-height: 64px !important;
+    padding: 0 !important;
+    margin: 0 !important;
+    overflow: hidden !important;
+    background: transparent !important;
+    box-shadow: none !important;
+    border: 0 !important;
+  }
+
+  .vs-header.layout3 .sticky-active > .container.custom-container {
+    height: 64px !important;
+    min-height: 64px !important;
+    max-height: 64px !important;
+    padding: 0 16px !important;
+    margin: 0 !important;
+    overflow: hidden !important;
+    display: flex !important;
+    align-items: center !important;
+    background: transparent !important;
+    box-shadow: none !important;
+    border: 0 !important;
+  }
+
+  .vs-header.layout3 .sticky-active > .container.custom-container::before {
+    display: none !important;
+    content: none !important;
+  }
+
+  .vs-header.layout3 .sticky-active > .container.custom-container > .d-flex {
+    height: 64px !important;
+    min-height: 64px !important;
+    max-height: 64px !important;
+    padding: 0 !important;
+    gap: 0 !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: space-between !important;
+    overflow: hidden !important;
+    width: 100% !important;
+    position: relative !important;
+  }
+
+  .vs-header.layout3 .sticky-active > .container.custom-container > .d-flex > .d-flex.align-items-center.justify-content-between {
+    padding-left: 0 !important;
+    padding-right: 0 !important;
+    flex: 1 1 auto !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: space-between !important;
+    width: 100% !important;
+    height: 64px !important;
+    overflow: hidden !important;
+    position: relative !important;
+  }
+
+  .vs-header.layout3,
+  .vs-header.layout3 .sticky-wrapper {
+    padding: 0 !important;
+    margin: 0 !important;
+  }
+
+  .vs-header.layout3 .fixed-header,
+  .vs-header.layout3 .sticky-active.fixed-header,
+  .vs-header.layout3 .sticky-wrapper.fixed-header {
+    background: rgba(10, 8, 0, 0.90) !important;
+    backdrop-filter: blur(14px) !important;
+    -webkit-backdrop-filter: blur(14px) !important;
+    box-shadow: none !important;
+    border-bottom: 1px solid rgba(201,162,95,0.16) !important;
+  }
+
+  /* ✅ الشعار — وسط مضمون بـ absolute */
+  .vs-header.layout3 .header-logo.style3.text-center {
+    position: absolute !important;
+    left: 50% !important;
+    top: 50% !important;
+    transform: translate(-50%, -50%) !important;
+    z-index: 10 !important;
+    margin: 0 !important;
+    pointer-events: auto !important;
+    visibility: visible !important;
+    opacity: 1 !important;
+  }
+
+  .vs-header.layout3 .header-logo.style3.text-center img.image-logo {
+    max-height: 40px !important;
+    width: auto !important;
+    display: block !important;
+  }
+
+  /* ✅ السلة والكوكب — يسار */
+  .vs-header.layout3 .header-wc.style2 {
+    order: 1 !important;
+    flex: 0 0 auto !important;
+    min-width: auto !important;
+    gap: 12px !important;
+    justify-content: flex-start !important;
+    align-items: center !important;
+    display: flex !important;
+    height: 64px !important;
+    position: relative !important;
+    z-index: 11 !important;
+  }
+
+  .vs-header.layout3 .header-wc.style2 a,
+  .vs-header.layout3 .header-wc.style2 button,
+  .vs-header.layout3 .header-wc.style2 i,
+  .vs-header.layout3 .header-wc.style2 svg {
+    color: #fff !important;
+    fill: #fff !important;
+  }
+
+  .vs-header.layout3 .cart-badge {
+    background: #c9a25f !important;
+    color: #000 !important;
+    border: 0 !important;
+  }
+
+  /* ✅ زر القائمة — يمين */
+  .vs-header.layout3 .vs-menu-toggle.d-inline-block.d-lg-none {
+    order: 3 !important;
+    flex: 0 0 auto !important;
+    display: inline-flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    height: 64px !important;
+    color: #fff !important;
+    position: relative !important;
+    z-index: 11 !important;
+  }
+
+  .vs-header.layout3 .vs-menu-toggle .menu-icon path {
+    fill: #fff !important;
+  }
+
+  .vs-header-logo-center {
+    display: none !important;
+  }
+
+  .vs-header.layout3 nav.main-menu.d-none.d-lg-block {
+    display: none !important;
+  }
+
+  .vs-header.layout3 *,
+  .vs-header.layout3 .sticky-active,
+  .vs-header.layout3 .sticky-wrapper,
+  .vs-header.layout3 .container.custom-container,
+  .vs-header.layout3 .header-logo,
+  .vs-header.layout3 .header-wc {
+    border-bottom: 0 !important;
+  }
+
+}
+
 
 /* =========================================================
    GOLD TITLES EFFECT
@@ -4344,4 +4540,59 @@ body[data-template="list_products"] .paddingPage {
     min-height: 270px !important;
   }
 
+}
+
+
+
+/* =========================================================
+   HEADER OVER HERO — FIXED v3
+========================================================= */
+.ParentMainSlider {
+  position: relative !important;
+  margin-top: -92px !important;
+  z-index: 0 !important;
+}
+
+/* ✅ لا نلمس position حتى يعمل الـ sticky */
+.vs-header.layout3 {
+  z-index: 50 !important;
+}
+
+.vs-header.layout3 .sticky-wrapper {
+  background: transparent !important;
+}
+
+/* الهيدر شفاف في وضعه الطبيعي */
+.vs-header.layout3 .sticky-active {
+  background: transparent !important;
+  box-shadow: none !important;
+  border: 0 !important;
+}
+
+/* عند النزول — يصير له خلفية */
+.vs-header.layout3 .sticky-active.fixed-header,
+.vs-header.layout3 .header-fixed,
+.vs-header.layout3 [class*="fixed"],
+.vs-header.layout3 [class*="scrolled"],
+.vs-header.layout3 [class*="sticky--active"] {
+  background: rgba(10, 8, 0, 0.92) !important;
+  backdrop-filter: blur(14px) !important;
+  -webkit-backdrop-filter: blur(14px) !important;
+  box-shadow: 0 4px 24px rgba(0,0,0,0.28) !important;
+  border-bottom: 1px solid rgba(218,174,73,0.14) !important;
+}
+
+.vs-header.layout3 .sticky-active > .container.custom-container {
+  position: relative !important;
+  padding-top: 10px !important;
+  padding-bottom: 10px !important;
+}
+
+.vs-header.layout3 .sticky-active > .container.custom-container > .d-flex {
+  position: relative !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: space-between !important;
+  min-height: 84px !important;
+  gap: 24px !important;
 }
