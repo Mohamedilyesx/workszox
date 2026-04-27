@@ -4258,3 +4258,90 @@ body[data-template="list_products"] .paddingPage {
     font-size: 13px !important;
   }
 }
+
+/* =========================================================
+   MOBILE FIX — نهائي ✅
+========================================================= */
+@media (max-width: 767px) {
+
+  /* 1. الـ mask بنفس الارتفاع الأصلي الذي كان يعمل */
+  .product-item.style1 .mask {
+    padding-bottom: 0 !important;
+    margin-bottom: 0 !important;
+    height: 270px !important;
+  }
+
+  /* 2. بطاقة المنتج */
+  .product-item.style1 {
+    max-width: 320px;
+    min-height: 200px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  /* 3. إزالة الفراغ بين الصورة والـ content */
+  .product-item.style1 .content {
+    margin-top: 0 !important;
+    padding-top: 6px !important;
+    padding-bottom: 0 !important;
+    margin-bottom: 0 !important;
+  }
+
+  /* 4. إزالة الفراغ أسفل زر أضف للسلة */
+  .product-item .btns,
+  .product-item.style1 .btns {
+    gap: 0 !important;
+    margin-bottom: 0 !important;
+    padding-bottom: 0 !important;
+  }
+
+  /* 5. إخفاء زر المفضلة */
+  .product-item .btns .add-to-wishlist,
+  .products-slider .btns .add-to-wishlist,
+  .product-item .content .btns .add-to-wishlist {
+    display: none !important;
+  }
+
+  /* 6. زر أضف للسلة — عرض كامل */
+  .product-item .addCart,
+  .product-item.style1 .addCart {
+    width: 100% !important;
+    margin-bottom: 0 !important;
+    padding-bottom: 0 !important;
+  }
+
+  /* 7. نص وحجم زر أضف للسلة */
+  .product-item .addCart .btn-product-card.hbtn1.a-shopping-cart,
+  .products-slider .addCart .btn-product-card.hbtn1.a-shopping-cart {
+    width: 100% !important;
+    min-height: 42px !important;    /* كان 38px */
+    padding: 0 8px !important;
+    font-size: 13px !important;     /* كان 11px */
+  }
+
+  .product-item .addCart .btn-product-card.hbtn1.a-shopping-cart span,
+  .product-item .addCart .btn-product-card.hbtn1.a-shopping-cart .add-to-cart-text,
+  .products-slider .addCart .btn-product-card.hbtn1.a-shopping-cart span,
+  .products-slider .addCart .btn-product-card.hbtn1.a-shopping-cart .add-to-cart-text {
+    font-size: 13px !important;     /* كان 11px */
+    font-weight: 700 !important;
+    color: var(--gold-text) !important;
+  }
+
+  /* 8. أيقونة الزر */
+  .product-item .addCart .btn-product-card.hbtn1.a-shopping-cart::before,
+  .products-slider .addCart .btn-product-card.hbtn1.a-shopping-cart::before {
+    width: 14px !important;
+    height: 14px !important;
+    min-width: 14px !important;
+    font-size: 12px !important;
+  }
+
+  /* 9. إصلاح منتج واحد في السلايدر (قسم العروض) */
+  .products-slider .slick-slide.slick-active:only-child .product-item.style1 .mask,
+  .products-slider .slick-track .prod-col:first-child:last-child .product-item.style1 .mask {
+    height: auto !important;
+    min-height: 270px !important;
+  }
+
+}
