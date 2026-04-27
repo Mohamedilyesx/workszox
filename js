@@ -631,4 +631,44 @@ document.addEventListener("DOMContentLoaded", function () {
   }, 600);
 
   setTimeout(fixTotalWhite, 1800);
-});
+  });
+
+// =========================================================
+// MOBILE HEADER — إعادة ترتيب + إخفاء
+// =========================================================
+
+
+function fixMobileIcons() {
+  if (window.innerWidth > 991) return;
+
+  var wc = document.querySelector('.vs-header.layout3 .header-wc.style2');
+  if (!wc) return;
+
+  wc.querySelectorAll('a, button').forEach(function(el) {
+    var icon = el.querySelector('i');
+    var cls = (icon ? icon.className : '') + ' ' + el.className;
+
+    // إخفاء البحث
+    if (cls.includes('search') || cls.includes('pe-7s-search')) {
+      el.style.setProperty('display', 'none', 'important');
+    }
+    // إخفاء المفضلة
+    else if (cls.includes('wish') || cls.includes('heart') || cls.includes('like') || cls.includes('pe-7s-like')) {
+      el.style.setProperty('display', 'none', 'important');
+    }
+    // إظهار الكوكب
+    else if (cls.includes('global') || cls.includes('langCurrecy') || cls.includes('pe-7s-global')) {
+      el.style.setProperty('display', 'inline-flex', 'important');
+      el.style.setProperty('align-items', 'center', 'important');
+    }
+    // إظهار السلة
+    else if (cls.includes('cart') || cls.includes('shopbag') || cls.includes('wc-link2') || cls.includes('pe-7s-shopbag')) {
+      el.style.setProperty('display', 'inline-flex', 'important');
+      el.style.setProperty('align-items', 'center', 'important');
+    }
+  });
+}
+
+document.addEventListener('DOMContentLoaded', fixMobileIcons);
+window.addEventListener('load', fixMobileIcons);
+window.addEventListener('resize', fixMobileIcons);
