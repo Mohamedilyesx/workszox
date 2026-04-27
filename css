@@ -11,6 +11,24 @@ section.section-id328e3908-31ab-4ba2-a0a1-de7e200ad50e .slide-0 {
   overflow: hidden !important;
 }
 
+.categories.style1 .xc-category-one__item-inner .img, .categories.style1 .xc-category-one__item-inner .xc-category-one__img {
+    height: 150px;
+}
+
+.categories.style1 .xc-category-one__item-inner .img i, .categories.style1 .xc-category-one__img img {
+    border-radius: 20%;
+    border: TRANSPARENT;
+}
+
+.blog-text p {
+    color: #ffffff;
+}
+.card-shape  {
+    background-color: transparent!important;
+  border: transparent;
+
+}
+
 .slide-0 .custom-bg-video {
   position: absolute !important;
   inset: 0 !important;
@@ -21,6 +39,12 @@ section.section-id328e3908-31ab-4ba2-a0a1-de7e200ad50e .slide-0 {
   pointer-events: none !important;
   background: #000 !important;
 }
+.pb-80  {
+    padding-bottom: 20px!important;
+    padding-top: 20px!important;
+}
+
+
 
 .slide-0::before {
   content: "";
@@ -43,6 +67,12 @@ section.section-id328e3908-31ab-4ba2-a0a1-de7e200ad50e .slide-0 {
   position: relative !important;
   z-index: 2 !important;
 }
+
+
+.home-products-section.style1 .slick-prev, .home-products-section.style1 .slick-next, .categories .owl-carousel .owl-nav button.owl-next, .categories .owl-carousel .owl-nav button.owl-prev {
+
+        border-radius: 50px!important;
+    }
 
 /* =========================================================
    HEADER OVER HERO
@@ -991,6 +1021,7 @@ section.section-id328e3908-31ab-4ba2-a0a1-de7e200ad50e .slide-0 {
   width: 100% !important;
   margin-top: 0 !important;
   clear: both !important;
+  margin-bottom: -50px;
 }
 
 .title-area .section-title svg .cls-1,
@@ -1071,18 +1102,7 @@ section.section-id328e3908-31ab-4ba2-a0a1-de7e200ad50e .slide-0 {
   transition: transform .28s ease, border-color .28s ease !important;
 }
 
-.accordion-body {
-  padding: 0 20px 20px 20px !important;
-  border-top: 1px solid rgba(218,174,73,.08) !important;
-  background: linear-gradient(180deg, rgba(218,174,73,.02) 0%, rgba(255,255,255,0) 100%) !important;
-}
 
-.accordion-body p {
-  margin: 14px 0 0 !important;
-  color: #d7cfbf !important;
-  font-size: 15px !important;
-  line-height: 1.95 !important;
-}
 
 /* =========================================================
    STORE FEATURES SECTION
@@ -1622,6 +1642,11 @@ section[section-id="8d32afe8-44af-4fc2-b430-a9ce33adb61f"] {
 .product-images-carousel-thumbs {
     content-visibility: hidden!important;
 }
+
+.card-shape {
+    content-visibility: hidden!important;
+} 
+
 
 .col-product-info .prodDetails {
     text-align-last: center!important;
@@ -2305,6 +2330,11 @@ i.fa.fa-close.close:hover {
   border-top: 1px solid rgba(218,174,73,.10) !important;
 }
 
+.payment-method-card {
+    BACKGROUND: WHITE;
+    border-radius: 50px;
+}
+
 
 .store-section .links .footer-about-us-links-div {
     align-items: center;
@@ -2670,6 +2700,7 @@ button.gift-card-toggle-btn {
   50%      { box-shadow: 0 0 30px 6px rgba(218,174,73,.15); }
 }
 
+
 /* =========================================================
    صفحة التصنيفات — الخلفية
 ========================================================= */
@@ -2678,6 +2709,50 @@ button.gift-card-toggle-btn {
   padding: 60px 0 80px !important;
   background: radial-gradient(ellipse at 50% 0%, rgba(218,174,73,.07) 0%, transparent 70%),
               linear-gradient(180deg, #1a1712 0%, #111009 100%) !important;
+}
+
+/* أنيميشن متدرج لكل كارت */
+.category-item:nth-child(1) .xc-category-one__item-inner { animation-delay: .1s !important; }
+.category-item:nth-child(2) .xc-category-one__item-inner { animation-delay: .22s !important; }
+.category-item:nth-child(3) .xc-category-one__item-inner { animation-delay: .34s !important; }
+
+
+
+/* =========================================================
+   صورة التصنيف
+========================================================= */
+.xc-category-one__img {
+  display: block !important;
+  overflow: hidden !important;
+  border-radius: 16px 16px 0 0 !important;
+  background: linear-gradient(135deg, #2a2318, #1a1510) !important;
+  width: 100% !important;
+  aspect-ratio: 1 / 1 !important;
+  position: relative !important;
+}
+
+.xc-category-one__img img {
+  width: 100% !important;
+  height: 100% !important;
+  object-fit: cover !important;
+  transition: transform .45s ease, filter .45s ease !important;
+  filter: brightness(.9) saturate(1.1) !important;
+}
+
+/* صورة no-image */
+.xc-category-one__img img[src*="no-image"] {
+  opacity: .12 !important;
+  filter: sepia(1) hue-rotate(15deg) brightness(1.4) !important;
+}
+
+/* طبقة ذهبية فوق الصورة */
+.xc-category-one__img::after {
+  content: "" !important;
+  position: absolute !important;
+  inset: 0 !important;
+  background: linear-gradient(135deg, rgba(218,174,73,.1), transparent) !important;
+  opacity: 0 !important;
+  transition: opacity .35s ease !important;
 }
 
 /* =========================================================
@@ -2746,47 +2821,7 @@ button.gift-card-toggle-btn {
   pointer-events: none !important;
 }
 
-/* أنيميشن متدرج لكل كارت */
-.category-item:nth-child(1) .xc-category-one__item-inner { animation-delay: .1s !important; }
-.category-item:nth-child(2) .xc-category-one__item-inner { animation-delay: .22s !important; }
-.category-item:nth-child(3) .xc-category-one__item-inner { animation-delay: .34s !important; }
 
-/* =========================================================
-   صورة التصنيف
-========================================================= */
-.xc-category-one__img {
-  display: block !important;
-  overflow: hidden !important;
-  border-radius: 16px 16px 0 0 !important;
-  background: linear-gradient(135deg, #2a2318, #1a1510) !important;
-  width: 100% !important;
-  aspect-ratio: 1 / 1 !important;
-  position: relative !important;
-}
-
-.xc-category-one__img img {
-  width: 100% !important;
-  height: 100% !important;
-  object-fit: cover !important;
-  transition: transform .45s ease, filter .45s ease !important;
-  filter: brightness(.9) saturate(1.1) !important;
-}
-
-/* صورة no-image */
-.xc-category-one__img img[src*="no-image"] {
-  opacity: .12 !important;
-  filter: sepia(1) hue-rotate(15deg) brightness(1.4) !important;
-}
-
-/* طبقة ذهبية فوق الصورة */
-.xc-category-one__img::after {
-  content: "" !important;
-  position: absolute !important;
-  inset: 0 !important;
-  background: linear-gradient(135deg, rgba(218,174,73,.1), transparent) !important;
-  opacity: 0 !important;
-  transition: opacity .35s ease !important;
-}
 
 /* =========================================================
    نص التصنيف
@@ -3811,6 +3846,8 @@ body[data-template="list_products"] .paddingPage {
   white-space: nowrap;
   text-align: right;
   line-height: 1.2;
+  padding-left: 20px;
+    padding-right: 20px;
 }
 
 /* ===== منطقة الأزرار ===== */
@@ -4087,47 +4124,74 @@ body[data-template="list_products"] .paddingPage {
 }
 
 
+
+
+
+
 /* =========================================================
-   optionsBox — خيارات المنتج
+   optionsBox — سطر واحد: الكمية يمين + الأعداد يسار
 ========================================================= */
 .products-details-page .optionsBox {
-  display: flex !important;
-  flex-direction: column !important;
+  grid-template-columns: 1fr 0fr !important;
   align-items: center !important;
-  text-align: center !important;
   width: 100% !important;
-  margin: 20px auto !important;
-  border-radius: 50px;
+  margin: 12px 0 !important;
+  gap: 12px !important;
+  padding: 10px 16px !important;
 }
 
-/* العنوان */
+/* العنوان / الكمية — يمين في عموده */
 .products-details-page .optionsBox label,
 .products-details-page .optionsBox .option-title,
 .products-details-page .optionsBox > span,
 .products-details-page .optionsBox .title {
-  display: block !important;
-  width: 100% !important;
-  text-align: center !important;
+  justify-self: end !important;
+  white-space: nowrap !important;
   color: #c4b89a !important;
   font-size: 14px !important;
   font-weight: 600 !important;
-  margin-bottom: 12px !important;
-  letter-spacing: 0.5px !important;
+  margin: 0 !important;
 }
 
-/* حاوية الخيارات */
+/* حاوية الأعداد — يسار في عموده */
 .products-details-page .optionsBox .options,
 .products-details-page .optionsBox ul,
 .products-details-page .optionsBox .option-values {
   display: flex !important;
   flex-wrap: wrap !important;
-  justify-content: center !important;
+  justify-content: flex-start !important;
   align-items: center !important;
-  gap: 10px !important;
+  gap: 8px !important;
   padding: 0 !important;
-  margin: 0 auto !important;
+  margin: 0 !important;
   list-style: none !important;
+  justify-self: start !important;
+}
+
+/* select-quantity و product-form */
+.products-details-page .product-form,
+.products-details-page .select-quantity-div {
+  display: grid !important;
+  grid-template-columns: 1fr 1fr !important;
+  align-items: center !important;
   width: 100% !important;
+  gap: 12px !important;
+  padding: 10px 16px !important;
+}
+
+.products-details-page .select-quantity-div .product-title {
+  justify-self: end !important;
+  white-space: nowrap !important;
+  font-size: 14px !important;
+  font-weight: 600 !important;
+  color: #c4b89a !important;
+  margin: 0 !important;
+}
+
+.products-details-page .select-quantity {
+  justify-self: start !important;
+  width: auto !important;
+  min-width: 100px !important;
 }
 
 /* كل خيار */
@@ -4138,9 +4202,9 @@ body[data-template="list_products"] .paddingPage {
   display: inline-flex !important;
   align-items: center !important;
   justify-content: center !important;
-  min-width: 48px !important;
-  min-height: 38px !important;
-  padding: 0 18px !important;
+  min-width: 40px !important;
+  min-height: 36px !important;
+  padding: 0 14px !important;
   border-radius: 999px !important;
   background: rgba(255,255,255,0.03) !important;
   color: #b8a98a !important;
@@ -4151,6 +4215,7 @@ body[data-template="list_products"] .paddingPage {
   transition: all 0.22s ease !important;
   text-decoration: none !important;
   list-style: none !important;
+  white-space: nowrap !important;
 }
 
 /* hover */
@@ -4178,11 +4243,18 @@ body[data-template="list_products"] .paddingPage {
 
 /* جوال */
 @media (max-width: 767px) {
+  .products-details-page .optionsBox,
+  .products-details-page .select-quantity-div {
+    padding: 8px 12px !important;
+    gap: 8px !important;
+  }
+
   .products-details-page .optionsBox .options li,
   .products-details-page .optionsBox .options li a,
   .products-details-page .optionsBox .option-value {
-    min-height: 34px !important;
-    padding: 0 14px !important;
+    min-height: 32px !important;
+    min-width: 34px !important;
+    padding: 0 10px !important;
     font-size: 13px !important;
   }
 }
