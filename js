@@ -29,7 +29,7 @@ document.addEventListener("DOMContentLoaded", function () {
     video.setAttribute("preload", "auto");
 
     var source = document.createElement("source");
-    source.src = "https://green-camel-228650.hostingersite.com/wp-content/uploads/2026/04/0227-copy3.mp4";
+    source.src = "https://green-camel-228650.hostingersite.com/wp-content/uploads/2026/04/0203-copy-1-copy-copy-11.mp4";
     source.type = "video/mp4";
 
     video.appendChild(source);
