@@ -29,7 +29,7 @@ document.addEventListener("DOMContentLoaded", function () {
     video.setAttribute("preload", "auto");
 
     var source = document.createElement("source");
-    source.src = "https://green-camel-228650.hostingersite.com/wp-content/uploads/2026/04/0203-copy-1-copy-copy-11.mp4";
+    source.src = "https://green-camel-228650.hostingersite.com/wp-content/uploads/2026/04/0227-copy4.mp4";
     source.type = "video/mp4";
 
     video.appendChild(source);
@@ -171,7 +171,7 @@ document.addEventListener("DOMContentLoaded", function () {
         '<div class="jawak-interactive-shell">' +
           '<div class="jawak-media-card">' +
             '<video autoplay muted loop playsinline preload="auto">' +
-              '<source src="https://green-camel-228650.hostingersite.com/wp-content/uploads/2026/04/0203-copy-1-copy-copy-1.mp4">' +
+              '<source src="https://green-camel-228650.hostingersite.com/wp-content/uploads/2026/04/0203-copy-1-copy-copy-11.mp4">' +
             '</video>' +
           '</div>' +
           '<div class="jawak-content-side">' +
