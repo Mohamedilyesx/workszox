@@ -833,3 +833,30 @@ document.addEventListener("DOMContentLoaded", function () {
   }
 
 })();
+
+ document.addEventListener("DOMContentLoaded", function() {
+  var hiddenCategories = [
+    '1537771',
+    '1534130',
+    '1534129',
+    '1537773',
+    '1534131'
+  ];
+
+  var path = window.location.pathname;
+  var shouldHide = hiddenCategories.some(function(id) {
+    return path.indexOf(id) !== -1;
+  });
+
+  if (shouldHide) {
+    document.querySelectorAll('.xc-category-one__img').forEach(function(el) {
+      el.remove();
+    });
+    document.querySelectorAll('img[alt="breadcrumb"]').forEach(function(el) {
+      el.remove();
+    });
+    document.querySelectorAll('.breadcrumb-img').forEach(function(el) {
+      el.remove();
+    });
+  }
+});
