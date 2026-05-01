@@ -29,7 +29,7 @@ document.addEventListener("DOMContentLoaded", function () {
     video.setAttribute("preload", "auto");
 
     var source = document.createElement("source");
-    source.src = "https://green-camel-228650.hostingersite.com/wp-content/uploads/2026/04/0227-copy4.mp4";
+    source.src = "https://green-camel-228650.hostingersite.com/wp-content/uploads/2026/05/0227-copy5.mp4";
     source.type = "video/mp4";
 
     video.appendChild(source);
@@ -634,41 +634,202 @@ document.addEventListener("DOMContentLoaded", function () {
   });
 
 // =========================================================
-// MOBILE HEADER — إعادة ترتيب + إخفاء
+// MOBILE HEADER —شريط متحرك 
 // =========================================================
 
+(function () {
+  "use strict";
 
-function fixMobileIcons() {
-  if (window.innerWidth > 991) return;
+  if (window.__JWK_BAR_LOADED__) return;
+  window.__JWK_BAR_LOADED__ = true;
 
-  var wc = document.querySelector('.vs-header.layout3 .header-wc.style2');
-  if (!wc) return;
+  var MESSAGES = [
+    "أكثر من 150,000 فيلم ومسلسل — كل شيء في اشتراك واحد",
+    "جودة 4K و8K بثبات تام — شاهد بلا تقطيع",
+    "مونديال 2026 — عيشه بأعلى جودة مع Jawak TV",
+    "يعمل على جميع أجهزتك — تلفاز، جوال، Apple TV",
+    "تفعيل فوري خلال دقيقة — دعم فني على مدار الساعة",
+    "عروض حصرية على الاشتراكات السنوية — لا تفوّتها",
+    "أكثر من 20,000 قناة عالمية — رياضة، أفلام، أنمي",
+    "وداعاً للتقطيع — أهلاً بالثبات الذي تستحقه",
+    "اشتراك واحد يكفي العائلة كلها — أجهزة غير محدودة",
+    "صورة نقية وصوت احترافي — تجربة المشاهدة الحقيقية",
+    "تحميل فوري بلا تأخير — لأن وقتك أغلى من الانتظار",
+    "محتوى حصري لا تجده في أي منصة أخرى",
+    "الخيار الأول لمحبي الرياضة في الوطن العربي",
+    "الدوريات الأوروبية والعالمية والعربية — كلها في مكان واحد",
+    "أفلام، مسلسلات، رياضة — منصة واحدة للجميع"
+  ];
 
-  wc.querySelectorAll('a, button').forEach(function(el) {
-    var icon = el.querySelector('i');
-    var cls = (icon ? icon.className : '') + ' ' + el.className;
+  var SEPARATOR = "◆";
+  var SPEED = 0.6;
 
-    // إخفاء البحث
-    if (cls.includes('search') || cls.includes('pe-7s-search')) {
-      el.style.setProperty('display', 'none', 'important');
+  function injectStyles() {
+    if (document.getElementById("jwkBarStyles")) return;
+    var style = document.createElement("style");
+    style.id = "jwkBarStyles";
+    style.textContent = [
+      ".xc-header-two__top { display:none !important; }",
+      "#jwkBar {",
+      "  position: relative; display: flex; align-items: center;",
+      "  width: 100%; height: 42px; overflow: hidden;",
+      "  background: linear-gradient(135deg,#0e0901 0%,#1a1000 35%,#221400 65%,#0e0901 100%);",
+      "  border-bottom: 1px solid rgba(218,174,73,0.22);",
+      "  box-shadow: 0 2px 12px rgba(0,0,0,0.55), inset 0 1px 0 rgba(218,174,73,0.08);",
+      "  z-index: 99999; box-sizing: border-box; direction: ltr;",
+      "}",
+      "#jwkBar::before {",
+      "  content: ''; position: absolute; top: 0; left: 0; right: 0; height: 1px;",
+      "  background: linear-gradient(90deg, transparent, rgba(218,174,73,0.55) 50%, transparent);",
+      "  pointer-events: none;",
+      "}",
+      "#jwkMask {",
+      "  flex: 1 1 auto; height: 100%; overflow: hidden; position: relative; direction: ltr;",
+      "  -webkit-mask-image: linear-gradient(90deg, transparent 0%, #000 3.5%, #000 96.5%, transparent 100%);",
+      "          mask-image: linear-gradient(90deg, transparent 0%, #000 3.5%, #000 96.5%, transparent 100%);",
+      "}",
+      "#jwkTrack {",
+      "  display: inline-flex; flex-wrap: nowrap; width: max-content; height: 100%;",
+      "  align-items: center; white-space: nowrap;",
+      "  will-change: transform; transform: translate3d(0,0,0); direction: ltr;",
+      "}",
+      ".jwk-item {",
+      "  display: inline-flex; align-items: center; height: 100%; padding: 0 28px;",
+      "  color: #e8dfc0;",
+      "  font-family: 'IBM Plex Sans Arabic','Tajawal','Cairo',Arial,sans-serif;",
+      "  font-size: 13.5px; font-weight: 500; letter-spacing: 0.01em;",
+      "  white-space: nowrap; direction: rtl; flex: 0 0 auto;",
+      "  text-shadow: 0 1px 6px rgba(0,0,0,0.6);",
+      "  transition: color 0.2s; cursor: default;",
+      "}",
+      ".jwk-item:hover { color: #f5e9aa; }",
+      ".jwk-sep {",
+      "  display: inline-flex; align-items: center; height: 100%; padding: 0 4px;",
+      "  color: rgba(218,174,73,0.6); font-size: 8px;",
+      "  white-space: nowrap; flex: 0 0 auto;",
+      "}",
+      "#jwkX {",
+      "  flex: 0 0 auto; width: 34px; height: 100%;",
+      "  display: flex; align-items: center; justify-content: center;",
+      "  background: transparent; border: none; cursor: pointer;",
+      "  padding: 0; margin: 0; opacity: 0.55;",
+      "  transition: opacity 0.2s, color 0.2s; color: #c9a84c;",
+      "}",
+      "#jwkX:hover { opacity: 1; color: #f0d080; }",
+      "@media (max-width: 767px) {",
+      "  #jwkBar   { height: 38px; }",
+      "  .jwk-item { font-size: 12.5px; padding: 0 18px; }",
+      "}"
+    ].join("\n");
+    document.head.appendChild(style);
+  }
+
+  function buildOneCopy() {
+    var html = "";
+    for (var i = 0; i < MESSAGES.length; i++) {
+      html += '<span class="jwk-item">' + MESSAGES[i] + "</span>";
+      html += '<span class="jwk-sep">'  + SEPARATOR    + "</span>";
     }
-    // إخفاء المفضلة
-    else if (cls.includes('wish') || cls.includes('heart') || cls.includes('like') || cls.includes('pe-7s-like')) {
-      el.style.setProperty('display', 'none', 'important');
-    }
-    // إظهار الكوكب
-    else if (cls.includes('global') || cls.includes('langCurrecy') || cls.includes('pe-7s-global')) {
-      el.style.setProperty('display', 'inline-flex', 'important');
-      el.style.setProperty('align-items', 'center', 'important');
-    }
-    // إظهار السلة
-    else if (cls.includes('cart') || cls.includes('shopbag') || cls.includes('wc-link2') || cls.includes('pe-7s-shopbag')) {
-      el.style.setProperty('display', 'inline-flex', 'important');
-      el.style.setProperty('align-items', 'center', 'important');
-    }
-  });
-}
+    return html;
+  }
 
-document.addEventListener('DOMContentLoaded', fixMobileIcons);
-window.addEventListener('load', fixMobileIcons);
-window.addEventListener('resize', fixMobileIcons);
+  function buildBar() {
+    if (document.getElementById("jwkBar")) return;
+
+    var bar      = document.createElement("div"); bar.id = "jwkBar";
+    var closeBtn = document.createElement("button");
+    closeBtn.id  = "jwkX"; closeBtn.type = "button";
+    closeBtn.setAttribute("aria-label", "إغلاق الشريط");
+    closeBtn.innerHTML =
+      '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor"' +
+      ' stroke-width="2.5" stroke-linecap="round" width="11" height="11">' +
+      '<line x1="18" y1="6" x2="6" y2="18"/>' +
+      '<line x1="6" y1="6" x2="18" y2="18"/></svg>';
+
+    var mask  = document.createElement("div"); mask.id  = "jwkMask";
+    var track = document.createElement("div"); track.id = "jwkTrack";
+    mask.appendChild(track);
+    bar.appendChild(closeBtn);
+    bar.appendChild(mask);
+
+    var inserted = false;
+    var anchors  = [".vs-header",".site-header","header","#masthead","#header"];
+    for (var a = 0; a < anchors.length; a++) {
+      var el = document.querySelector(anchors[a]);
+      if (el) { el.insertBefore(bar, el.firstChild); inserted = true; break; }
+    }
+    if (!inserted) document.body.insertBefore(bar, document.body.firstChild);
+
+    var pos = 0, paused = false, raf = null, singleW = 0;
+    var oneCopy = buildOneCopy();
+
+    function fillTrack() {
+      track.innerHTML = oneCopy;
+      singleW = track.scrollWidth;
+      if (singleW === 0) return false;
+      var vw     = mask.clientWidth || window.innerWidth;
+      var copies = Math.max(3, Math.ceil(vw / singleW) + 2);
+      var html   = "";
+      for (var c = 0; c < copies; c++) html += oneCopy;
+      track.innerHTML = html;
+      return true;
+    }
+
+    function tick() {
+      if (!paused && singleW > 0) {
+        pos -= SPEED;
+        if (pos <= -singleW) pos += singleW;
+        track.style.transform = "translate3d(" + pos + "px,0,0)";
+      }
+      raf = requestAnimationFrame(tick);
+    }
+
+    function startWhenReady() {
+      if (!fillTrack()) { setTimeout(startWhenReady, 50); return; }
+      raf = requestAnimationFrame(tick);
+    }
+
+    bar.addEventListener("mouseenter", function () { paused = true;  });
+    bar.addEventListener("mouseleave", function () { paused = false; });
+
+    closeBtn.addEventListener("click", function () {
+      if (raf) cancelAnimationFrame(raf);
+      bar.style.transition = "height .25s ease, opacity .25s ease";
+      bar.style.height = "0"; bar.style.opacity = "0";
+      setTimeout(function () { if (bar.parentNode) bar.parentNode.removeChild(bar); }, 280);
+    });
+
+    var resizeTimer = null;
+    window.addEventListener("resize", function () {
+      if (resizeTimer) clearTimeout(resizeTimer);
+      resizeTimer = setTimeout(function () {
+        var old = singleW;
+        if (fillTrack() && old > 0) {
+          pos = pos % singleW;
+          if (pos > 0) pos -= singleW;
+        }
+      }, 150);
+    });
+
+    if (document.fonts && document.fonts.ready) {
+      document.fonts.ready.then(function () {
+        var old = singleW;
+        if (fillTrack() && old > 0) {
+          pos = pos % singleW;
+          if (pos > 0) pos -= singleW;
+        }
+      });
+    }
+
+    startWhenReady();
+  }
+
+  function init() { injectStyles(); buildBar(); }
+
+  if (document.readyState === "loading") {
+    document.addEventListener("DOMContentLoaded", init);
+  } else {
+    init();
+  }
+
+})();
