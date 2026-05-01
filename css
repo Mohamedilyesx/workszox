@@ -9,6 +9,7 @@ section.section-id328e3908-31ab-4ba2-a0a1-de7e200ad50e .slide-0 {
   background: none !important;
   position: relative !important;
   overflow: hidden !important;
+      margin-top: 70px;
 }
 
 .categories.style1 .xc-category-one__item-inner .img,
@@ -2105,16 +2106,13 @@ section[section-id="8d32afe8-44af-4fc2-b430-a9ce33adb61f"] {
 }
 
 .products-details-page .tableDetails .tab.details code h2 {
-  font-size: 1.2rem;
+  font-size: 1.5rem;
   color: var(--primary-color);
   margin: 24px 0 12px;
   padding-bottom: 6px;
-  border-bottom: 1px solid rgba(218,174,73,0.2);
+  font-weight: bold;
 }
 
-.products-details-page .tableDetails .tab.details code ul {
-  padding-right: 20px;
-}
 
 .products-details-page .tableDetails .tab.details code li {
   margin-bottom: 8px;
@@ -4595,4 +4593,228 @@ body[data-template="list_products"] .paddingPage {
   justify-content: space-between !important;
   min-height: 84px !important;
   gap: 24px !important;
+}
+
+
+
+/*
+ * ════════════════════════════════════════════════════════════
+ *  badge-name / small — شريط العنوان الترويجي للمنتج
+ * ════════════════════════════════════════════════════════════
+ *
+ *  الوظيفة:
+ *    يُنسّق الشريط الترويجي الذي يظهر فوق صورة المنتج عند
+ *    تحريك الماوس عليه، ويعرض نص تسويقي مثل:
+ *    "عرض خاص" · "الأكثر مبيعاً" · "جديد" · "خصم 50%"
+ *
+ *  ما يفعله هذا التنسيق:
+ *    1 يستبدل اللون الثابت (--primary-color) بتدرج ذهبي فاخر
+ *    2 يُضيف حركة بريق تمر من اليمين لليسار كل 3 ثوانٍ
+ *    3 يُظهر خطاً ذهبياً رفيعاً في الأعلى والأسفل لإطار أنيق
+ *    4 عند hover → يُسرّع البريق ويزيد التوهج الذهبي
+ *
+ *  يؤثر على:
+ *    .badge-name  ← العنوان الترويجي النصي
+ *    small        ← النص الصغير الترويجي
+ *    كلاهما داخل: .product-item .mask .options
+ * ════════════════════════════════════════════════════════════
+ */
+
+.product-item .mask .options .badge-name,
+.product-item .mask .options small {
+    display: block;
+    position: relative;
+    left: 0px;
+    top: auto !important;
+    opacity: 1;
+    transition: all .3s ease 0s;
+
+    /* ═══ التدرج الذهبي الفاخر ═══ */
+    background: linear-gradient(
+        90deg,
+        #7a5c00 0%,
+        #c9952a 25%,
+        #f0d060 50%,
+        #c9952a 75%,
+        #7a5c00 100%
+    );
+    background-size: 200% auto;
+    animation: jwkGoldShine 3s linear infinite;
+
+    /* ═══ النص ═══ */
+    color: #1a0f00;
+    font-size: 13px;
+    font-weight: 800;
+    text-align: center;
+    letter-spacing: 0.04em;
+    text-shadow: 0 1px 2px rgba(255,220,80,0.25);
+
+    /* ═══ الشكل ═══ */
+    padding: 0px 15px;
+    border-radius: 0px;
+    margin-bottom: 5px;
+    overflow: hidden;
+    width: 100%;
+    height: 30px;
+    line-height: 28px;
+
+    /* ═══ خط علوي وسفلي رفيع ═══ */
+    border-top: 1px solid rgba(255,220,80,0.45);
+    border-bottom: 1px solid rgba(140,90,0,0.55);
+
+    /* ═══ توهج خفيف ═══ */
+    box-shadow: 0 2px 10px rgba(180,130,20,0.25),
+                inset 0 1px 0 rgba(255,235,100,0.2);
+}
+
+/* ═══ حركة البريق المتحرك ═══ */
+@keyframes jwkGoldShine {
+    0%   { background-position: 200% center; }
+    100% { background-position: -200% center; }
+}
+
+/* ═══ hover ═══ */
+.product-item .mask .options .badge-name:hover,
+.product-item .mask .options small:hover {
+    background: linear-gradient(
+        90deg,
+        #9a7800 0%,
+        #daa830 25%,
+        #ffe070 50%,
+        #daa830 75%,
+        #9a7800 100%
+    );
+    background-size: 200% auto;
+    animation: jwkGoldShine 1.5s linear infinite;
+    box-shadow: 0 3px 16px rgba(200,160,20,0.45),
+                inset 0 1px 0 rgba(255,245,120,0.3);
+    color: #0d0800;
+}
+
+/* ===== إصلاح محاذاة label اختر باقة التجديد وحقل اليوزر ===== */
+
+#product-custom-user-dropdown-fields,
+#product-custom-user-input-fields {
+    text-align: right !important;
+    direction: rtl !important;
+}
+
+#product-custom-user-dropdown-fields .form-group,
+#product-custom-user-input-fields .form-group {
+    text-align: right !important;
+}
+
+#product-custom-user-dropdown-fields .form-group > div,
+#product-custom-user-input-fields .form-group > div {
+    text-align: right !important;
+}
+
+#product-custom-user-dropdown-fields label,
+#product-custom-user-dropdown-fields label span,
+#product-custom-user-input-fields label,
+#product-custom-user-input-fields label span {
+    display: block !important;
+    text-align: right !important;
+    width: 100% !important;
+    margin-right: 0 !important;
+    margin-left: auto !important;
+    float: none !important;
+}
+
+#product-custom-user-dropdown-fields select.form-control,
+#product-custom-user-input-fields input.form-control {
+    text-align: right !important;
+    direction: rtl !important;
+}
+
+  .product-item .mask .options .badge-name, .product-item .mask .options small {
+    border: transparent;
+  }
+
+/* ===== توسيط محتوى تفاصيل المنتج في الحاسوب فقط ===== */
+@media (min-width: 992px) {
+    .tableDetails .table .tab.details {
+        text-align: center;
+        text-align-last: center;
+    }
+}
+
+
+
+@media (max-width: 767px) {
+
+  /* 1. الـ mask بنفس الارتفاع الأصلي الذي كان يعمل */
+ .tableDetails .table .tab.details {
+        padding: 5px;
+    }
+}
+
+/* ===== إصلاح قطع صور بطاقات المنتجات على الموبايل ===== */
+
+@media (max-width: 991px) {
+
+  /* الحاوية الرئيسية للبطاقة */
+  .product-item.style1 {
+    overflow: hidden !important;
+    width: 100% !important;
+  }
+
+  /* الـ mask التي تحتوي الصورة */
+  .product-item.style1 .mask {
+    overflow: hidden !important;
+    width: 100% !important;
+    height: auto !important;
+    min-height: unset !important;
+    max-height: unset !important;
+  }
+
+  /* حاوية الصورة */
+  .product-item.style1 .imagesSlider {
+    width: 100% !important;
+    height: auto !important;
+    overflow: hidden !important;
+    aspect-ratio: 1 / 1; /* مربع متجاوب بدون قطع */
+  }
+
+  /* رابط الصورة */
+  .product-item.style1 .imagesSlider .image {
+    display: block !important;
+    width: 100% !important;
+    height: 100% !important;
+    overflow: hidden !important;
+  }
+
+  /* الصورة نفسها */
+  .product-item.style1 .imagesSlider img {
+    width: 85% !important;
+    height: 100% !important;
+    max-width: 100% !important;
+    object-fit: cover !important;
+    object-position: center !important;
+    display: block !important;
+  }
+
+  /* منع أي overflow في الـ row والـ container */
+  .products-page .row,
+  .home-page .row {
+    overflow-x: hidden !important;
+  }
+}
+
+@media (max-width: 767px) {
+  /* إصلاح إضافي للموبايل الصغير */
+  .product-item.style1 .imagesSlider {
+    aspect-ratio: 1 / 1 !important;
+    max-height: none !important;
+    height: auto !important;
+  }
+
+  .product-item.style1 .imagesSlider img {
+    position: relative !important;
+    top: unset !important;
+    left: unset !important;
+    transform: none !important;
+    min-height: unset !important;
+    min-width: unset !important;
+  }
 }
