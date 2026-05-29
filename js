@@ -860,3 +860,21 @@ document.addEventListener("DOMContentLoaded", function () {
     });
   }
 });
+
+
+(() => {
+  document.addEventListener('contextmenu', (e) => e.preventDefault(), { capture: true });
+
+  document.addEventListener('keydown', (e) => {
+    const key = e.key.toUpperCase();
+    const blocked =
+      key === 'F12' ||
+      (e.ctrlKey && e.shiftKey && ['I', 'J', 'C'].includes(key)) ||
+      (e.ctrlKey && ['U', 'S', 'P'].includes(key));
+
+    if (blocked) {
+      e.preventDefault();
+      e.stopPropagation();
+    }
+  }, { capture: true });
+})();
