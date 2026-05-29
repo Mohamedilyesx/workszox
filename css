@@ -1,4 +1,4 @@
-/* =========================================================
+./* =========================================================
    HERO VIDEO
 ========================================================= */
 .slide-0,
@@ -9,7 +9,7 @@ section.section-id328e3908-31ab-4ba2-a0a1-de7e200ad50e .slide-0 {
   background: none !important;
   position: relative !important;
   overflow: hidden !important;
-      margin-top: 70px;
+      margin-top: 20px;
 }
 
 .categories.style1 .xc-category-one__item-inner .img,
@@ -708,11 +708,34 @@ section.section-id328e3908-31ab-4ba2-a0a1-de7e200ad50e .slide-0 {
 }
 
 .products-details-page .product-buttons > div {
-    justify-self: center!important;
+    gap: 12px !important;
+    justify-content: center;
 }
 
 .product-item.style1 .mask {
   padding: 0 !important;
+}
+
+@media (max-width: 768px) {
+    .products-details-page .product-buttons > div {
+        gap: 12px !important;
+        display: flex;
+        align-content: space-around;
+        flex-direction: column;
+    }
+
+.products-details-page .product-form, .products-details-page .select-quantity-div {
+    display: grid !important;
+    grid-template-columns: 1fr 2fr !important;
+    align-items: center !important;
+    width: 80% !important;
+    gap: 12px !important;
+    padding: 10px 16px !important;
+}
+
+      .products-details-page .optionsBox, .products-details-page .select-quantity-div {
+        margin-right: -36px;
+    }
 }
 
 .product-item.style1 .imagesSlider {
@@ -2434,7 +2457,7 @@ i.fa.fa-close.close:hover {
   align-items: flex-start !important;
   gap: 12px !important;
   padding: 14px 16px !important;
-  margin-bottom: 8px !important;
+  margin-bottom: 40px !important;
   background: linear-gradient(135deg,rgba(255,255,255,.025),rgba(218,174,73,.03)) !important;
   border: 1px solid rgba(218,174,73,.10) !important;
   border-radius: 14px !important;
@@ -2463,7 +2486,7 @@ i.fa.fa-close.close:hover {
 .items .item a.img {
   flex-shrink: 0 !important;
   width: 64px !important;
-  height: 64px !important;
+  height: 95px !important;
   border-radius: 12px !important;
   overflow: hidden !important;
   border: 1px solid rgba(218,174,73,.18) !important;
@@ -4767,7 +4790,15 @@ body[data-template="list_products"] .paddingPage {
     min-height: unset !important;
     max-height: unset !important;
   }
-
+  /* حاوية الواتس اب whatsapp */
+  @media (max-width: 767px) {
+    .whatsChat {
+        right: 10px;
+        top: 500px;
+ 
+    }
+}
+  
   /* حاوية الصورة */
   .product-item.style1 .imagesSlider {
     width: 100% !important;
@@ -4817,4 +4848,90 @@ body[data-template="list_products"] .paddingPage {
     min-height: unset !important;
     min-width: unset !important;
   }
+}
+
+
+
+.cart-product-col-img,
+.cart-product-col-img a.cart-product-image-link {
+  height: auto !important;
+  overflow: visible !important;
+}
+
+.cart-product-col-img {
+  aspect-ratio: 4 / 5 !important;
+}
+
+.cart-product-col-img img.cart-product-image {
+  width: 100% !important;
+  height: auto !important;
+  object-fit: contain !important;
+  object-position: center bottom !important;
+  display: block !important;
+}
+
+
+.cartBox .item .img {
+  width: 90px !important;
+  height: 112px !important; /* 4:5 تقريبًا */
+  overflow: hidden !important;
+  display: block !important;
+}
+
+.cartBox .item .img img {
+  width: 100% !important;
+  height: 100% !important;
+  object-fit: contain !important;
+  object-position: center bottom !important;
+  display: block !important;
+}
+
+@media (max-width: 768px) {
+  .cartBox .item .img {
+    width: 84px !important;
+    height: 105px !important;
+    flex: 0 0 84px !important;
+    overflow: hidden !important;
+  }
+
+  .cartBox .item .img img {
+    width: 100% !important;
+    height: 100% !important;
+    object-fit: contain !important;
+    object-position: center center !important;
+    display: block !important;
+  }
+}
+
+
+
+.shareProduct {
+  width: 100% !important;
+  text-align: center !important;
+}
+
+.shareProduct .product-icon {
+  display: flex !important;
+  justify-content: center !important;
+  align-items: center !important;
+  width: 100% !important;
+}
+
+.shareProduct .social-icons {
+  display: flex !important;
+  justify-content: center !important;
+  align-items: center !important;
+  gap: 10px !important;
+  width: 100% !important;
+}
+
+.shareProduct .social-icons a {
+  display: inline-flex !important;
+  justify-content: center !important;
+  align-items: center !important;
+}
+
+
+.products-details-page .div-product-sku .skuTitle {
+    content-visibility: hidden;
 }
